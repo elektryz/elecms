@@ -1,3 +1,12 @@
-elecms_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ElecmsBundle:Default:index }
+elecms_install:
+    path:     /{_locale}/install/
+    defaults: { _controller: ElecmsBundle:Install:index }
+    requirements:
+            _locale: pl|en
+
+elecms_step:
+    path:     /{_locale}/install/{step}
+    defaults: { _controller: ElecmsBundle:Install:step }
+    requirements:
+            step:  \d+
+            _locale: pl|en
