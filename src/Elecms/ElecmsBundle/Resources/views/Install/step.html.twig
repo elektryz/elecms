@@ -1,1 +1,25 @@
-Step {{ step }} :D
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% set install_title = 'Instalacja systemu Elecms' %}
+        <title>{{ install_title }}{% if step is defined %} : {{ step }}{% endif %} </title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/bootstrap.min.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/step.css') }}" type="text/css" media="all" />
+        {% endblock %}
+    {% endblock %}
+</head>
+<body class="step">
+<div class="container">
+<div class="row">
+    {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="footer">
+    {% block footer %}
+        &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>.
+    {% endblock %}
+</div>
+</body>
+</html>

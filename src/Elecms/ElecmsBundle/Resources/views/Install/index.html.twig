@@ -1,8 +1,13 @@
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/elecms/css/bootstrap.min.css') }}" type="text/css" media="all" />
-    <link rel="stylesheet" href="{{ asset('bundles/elecms/css/install.css') }}" type="text/css" media="all" />
-{% endblock %}
-
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <title>{% block title %}Witaj w Elecms!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/bootstrap.min.css') }}" type="text/css" media="all" />
+        {% endblock %}
+    {% endblock %}
+</head>
 <body>
 
 <div class="jumbotron">
@@ -42,3 +47,4 @@
 </div> <!-- /container -->
 
 </body>
+</html>
