@@ -3,11 +3,12 @@
 namespace Elecms\ElecmsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Elecms\ElecmsBundle\Utils\DbParams;
 use Symfony\Component\HttpFoundation\Request;
+use Elecms\ElecmsBundle\Utils\InstallDbHelper;
 
 class InstallController extends Controller
 {
+
     public function indexAction()
     {
         return $this->render('ElecmsBundle:Install:index.html.twig');
@@ -15,8 +16,8 @@ class InstallController extends Controller
 
     public function stepAction($step, Request $request)
     {
+        $db = new InstallDbHelper();
 
-        $db = new DbParams();
         $form = $this->createFormBuilder($db)
             ->add('server', 'text')
             ->add('database', 'text')
@@ -28,16 +29,12 @@ class InstallController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
-            $db->setServer('Server');
-            $db->setDatabase('database');
-            $db->setUser('user');
-            $db->setPassword('password');
-
-            //return $this->redirectToRoute('task_success');
+            try {
+                $db->exportParams();
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.<br>Komunikat błędu: <br>'.$e->getMessage());
+            }
         }
-
-
 
         return $this->render('ElecmsBundle:Install:step1.html.twig', array(
             'step' => $step,

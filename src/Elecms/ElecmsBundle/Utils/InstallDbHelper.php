@@ -2,7 +2,9 @@
 
 namespace Elecms\ElecmsBundle\Utils;
 
-class DbParams
+use Symfony\Component\Yaml\Dumper;
+
+class InstallDbHelper
 {
     protected $server;
     protected $database;
@@ -47,6 +49,25 @@ class DbParams
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function exportParams()
+    {
+        $params = array(
+            'parameters' => array(
+                'database_host' => $this->getServer(),
+                'database_port' => '',
+                'database_name' => $this->getDatabase(),
+                'database_user' => $this->getUser(),
+                'database_password' => $this->getPassword(),
+            )
+        );
+
+        $dumper = new Dumper();
+
+        $yaml = $dumper->dump($params);
+
+        return file_put_contents(__DIR__.'/../Resources/config/parameters_test.yml', $yaml) ? true : false;
     }
 
 }

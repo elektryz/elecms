@@ -1,12 +1,20 @@
 {% extends "ElecmsBundle:Install:step.html.twig" %}
 
-
 {% block head %}
     {% set step = 'Krok 1' %}
     {{ parent() }}
 {% endblock %}
 
 {% block content %}
+
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="flash-error">
+            {% autoescape %}
+                {{ flashMessage|raw }}
+            {% endautoescape %}
+        </div>
+    {% endfor %}
+
 <div class="col-sm-offset-3 col-sm-6"><h3>Krok 1 - Baza danych</h3></div>
 <div class="col-sm-offset-3 col-sm-6 well">
 
