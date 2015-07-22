@@ -15,40 +15,76 @@
         </div>
     {% endfor %}
 
-<div class="col-sm-offset-3 col-sm-6"><h3>Krok 1 - Baza danych</h3></div>
+<div class="col-sm-offset-3 col-sm-6"><h3>Krok 1 - Baza danych, SMTP oraz Token</h3></div>
 <div class="col-sm-offset-3 col-sm-6 well">
 
     {{ form_start(form) }}
         <div class="form-group">
-             {{ form_label(form.server, 'Serwer bazy danych', { 'label_attr': {'class': 'col-sm-4 control-label'} }) }}
-            <div class="col-sm-8">
+             {{ form_label(form.server, 'Serwer bazy danych', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-sm-7">
                 {{ form_widget(form.server, { 'attr': {'class': 'form-control', 'placeholder': 'np. localhost'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.server, 'Nazwa bazy', { 'label_attr': {'class': 'col-sm-4 control-label'} }) }}
-            <div class="col-sm-8">
+            {{ form_label(form.server, 'Nazwa bazy', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-sm-7">
                 {{ form_widget(form.database, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.user, 'Użytkownik', { 'label_attr': {'class': 'col-sm-4 control-label'} }) }}
-            <div class="col-sm-8">
+            {{ form_label(form.user, 'Użytkownik', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-sm-7">
                 {{ form_widget(form.user, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.password, 'Hasło', { 'label_attr': {'class': 'col-sm-4 control-label'} }) }}
-            <div class="col-sm-8">
+            {{ form_label(form.password, 'Hasło', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-sm-7">
                 {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
+
+</div>
+
+    <div class="col-sm-offset-3 col-sm-6 well">
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
-                {{ form_end(form) }}
+            {{ form_label(form.mailhost, 'Serwer SMTP', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-sm-7">
+                {{ form_widget(form.mailhost, { 'attr': {'class': 'form-control', 'placeholder': 'np. localhost'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.mailuser, 'Użytkownik', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-sm-7">
+                {{ form_widget(form.mailuser, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.mailpassword, 'Hasło', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-sm-7">
+                {{ form_widget(form.mailpassword, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ form_label(form.skip, 'Pomiń konfigurację serwera SMTP poczty e-mail', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-sm-7">
+                {{ form_widget(form.skip) }}
             </div>
         </div>
 
+    </div>
 
-</div>
+    <div class="col-sm-offset-3 col-sm-6 well">
+    <div class="form-group">
+        {{ form_label(form.token, 'Token', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+        <div class="col-sm-7">
+            {{ form_widget(form.token, { 'attr': {'class': 'form-control', 'placeholder': 'np. localhost'} }) }}
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-7">
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

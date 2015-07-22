@@ -4,7 +4,7 @@ namespace Elecms\ElecmsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Elecms\ElecmsBundle\Utils\InstallDbHelper;
+use Elecms\ElecmsBundle\Utils\DbMailHelper;
 
 class InstallController extends Controller
 {
@@ -16,13 +16,20 @@ class InstallController extends Controller
 
     public function stepAction($step, Request $request)
     {
-        $db = new InstallDbHelper();
+        $db = new DbMailHelper();
 
         $form = $this->createFormBuilder($db)
             ->add('server', 'text')
             ->add('database', 'text')
             ->add('user', 'text')
             ->add('password', 'text')
+            ->add('token', 'text')
+            ->add('mailhost', 'text', array('required' => false,))
+            ->add('mailuser', 'text', array('required' => false,))
+            ->add('mailpassword', 'text', array('required' => false,))
+            ->add('skip', 'checkbox', array(
+                'required' => false,
+            ))
             ->add('save', 'submit', array('label' => 'Dalej','attr' => array('class'=>'btn btn-default')))
             ->getForm();
 
@@ -30,7 +37,7 @@ class InstallController extends Controller
 
         if ($form->isValid()) {
             try {
-                $db->exportParams();
+                $db->skip ? $db->exportToYml('db') : $db->exportToYml() ;
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.<br>Komunikat błędu: <br>'.$e->getMessage());
             }
