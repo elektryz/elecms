@@ -37,7 +37,12 @@ class InstallController extends Controller
 
         if ($form->isValid()) {
             try {
-                $db->skip ? $db->exportToYml('db') : $db->exportToYml() ;
+                $db->skip ? $db->exportToYml('db') : $db->exportToYml();
+                try {
+                    $pdo = new \PDO("mysql:host={$db->getServer()};dbname={$db->getDatabase()}", $db->getUser(), $db->getPassword());
+                } catch(\PDOException $e) {
+                    $this->addFlash('error', 'Wprowadzone parametry połączenia z bazą danych są nieprawidłowe. Proszę sprawdzić ich poprawność.');
+                }
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.<br>Komunikat błędu: <br>'.$e->getMessage());
             }

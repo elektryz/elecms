@@ -6,15 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
-    {% for flashMessage in app.session.flashbag.get('error') %}
-        <div class="flash-error">
-            {% autoescape %}
-                {{ flashMessage|raw }}
-            {% endautoescape %}
-        </div>
-    {% endfor %}
-
 <div class="col-sm-offset-3 col-sm-6"><h3>Krok 1 - Baza danych, SMTP oraz Token</h3></div>
 <div class="col-sm-offset-3 col-sm-6 well">
 
@@ -76,7 +67,7 @@
 
     <div class="col-sm-offset-3 col-sm-6 well">
     <div class="form-group">
-        {{ form_label(form.token, 'Token', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
+        {{ form_label(form.token, 'Token bezpieczeństwa', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
         <div class="col-sm-7">
             {{ form_widget(form.token, { 'attr': {'class': 'form-control', 'placeholder': 'np. localhost'} }) }}
         </div>
