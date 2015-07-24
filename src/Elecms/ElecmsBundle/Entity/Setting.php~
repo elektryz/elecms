@@ -1,0 +1,33 @@
+<?php
+namespace Elecms\ElecmsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="setting")
+ */
+class Setting
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(length=100)
+     */
+    protected $key;
+
+    /**
+     * @ORM\Column(length=500)
+     */
+    protected $value;
+
+    /**
+     * @ORM\Column(type="datetime", length=100)
+     */
+    protected $modified;
+}
