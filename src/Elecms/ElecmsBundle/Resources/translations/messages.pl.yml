@@ -1,4 +1,17 @@
+# Ekran powitalny
 Welcome: Witaj
 If you want to start an installation of Elecms, click the <strong>Begin Installation</strong> button: Aby rozpocząć instalację systemu Elecms, kliknij w poniższy przycisk
 Follow the next steps and check if your inserted data is correct: Proszę postępować zgodnie z instrukcjami na kolejnych ekranach
 Begin Installation: Rozpocznij Instalację
+Next: Dalej
+
+# Krok 1
+Database server: Serwer bazy danych
+Database name: Nazwa bazy
+User: Użytkownik
+Password: Hasło
+SMTP host: Serwer SMTP
+Skip the SMTP confirguration: Pomiń konfigurację serwera SMTP poczty e-mail
+Token bezpieczeństwa: Security token
+ex. localhost: np. localhost
+Database parameters are incorrect.: Wprowadzone parametry połączenia z bazą danych są nieprawidłowe.

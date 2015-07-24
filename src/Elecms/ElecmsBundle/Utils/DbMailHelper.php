@@ -10,11 +10,11 @@ class DbMailHelper
     protected $database;
     protected $user;
     protected $password;
-    public $skip;
     protected $mailhost;
     protected $mailuser;
     protected $mailpassword;
     protected $token;
+    public $skip;
 
     public function getServer()
     {
@@ -108,8 +108,7 @@ class DbMailHelper
 
     public function exportToYml($what = 'all')
     {
-        if($what == 'all')
-        {
+        if($what == 'all') {
             $params = array(
                 'parameters' => array(
                     'database_host' => $this->getServer(),

@@ -2,9 +2,11 @@
 
 namespace Elecms\ElecmsBundle\Controller;
 
+use Elecms\ElecmsBundle\Form\Step1Form;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Elecms\ElecmsBundle\Utils\DbMailHelper;
+
 
 class InstallController extends Controller
 {
@@ -16,23 +18,21 @@ class InstallController extends Controller
 
     public function stepAction($step, Request $request)
     {
+        switch($step)
+        {
+            case 1:
+                return $this->step1($step, $request);
+                break;
+            default:
+                throw $this->createNotFoundException();
+        }
+    }
+
+    private function step1($step, $request)
+    {
         $db = new DbMailHelper();
 
-        $form = $this->createFormBuilder($db)
-            ->add('server', 'text')
-            ->add('database', 'text')
-            ->add('user', 'text')
-            ->add('password', 'text')
-            ->add('token', 'text')
-            ->add('mailhost', 'text', array('required' => false,))
-            ->add('mailuser', 'text', array('required' => false,))
-            ->add('mailpassword', 'text', array('required' => false,))
-            ->add('skip', 'checkbox', array(
-                'required' => false,
-            ))
-            ->add('save', 'submit', array('label' => 'Dalej','attr' => array('class'=>'btn btn-default')))
-            ->getForm();
-
+        $form = $this->createForm(new Step1Form(), $db);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -40,8 +40,9 @@ class InstallController extends Controller
                 $db->skip ? $db->exportToYml('db') : $db->exportToYml();
                 try {
                     $pdo = new \PDO("mysql:host={$db->getServer()};dbname={$db->getDatabase()}", $db->getUser(), $db->getPassword());
+                    return $this->redirectToRoute('elecms_step', array('step' => 2));
                 } catch(\PDOException $e) {
-                    $this->addFlash('error', 'Wprowadzone parametry połączenia z bazą danych są nieprawidłowe. Proszę sprawdzić ich poprawność.');
+                    $this->addFlash('error', $this->get('translator')->trans('Database parameters are incorrect.'));
                 }
             } catch (\Exception $e) {
                 $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.<br>Komunikat błędu: <br>'.$e->getMessage());
