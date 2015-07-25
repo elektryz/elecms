@@ -6,81 +6,84 @@
 {% endblock %}
 
 {% block content %}
-<div class="col-sm-offset-3 col-sm-6"><h3>Krok 1 - Baza danych, SMTP oraz Token</h3></div>
-<div class="col-sm-offset-3 col-sm-6 well">
+<div class="col-xs-offset-3 col-xs-6"><h3>Krok 1 - Baza danych, SMTP oraz Token</h3></div>
+<div class="col-xs-offset-3 col-xs-6 well">
 
     {{ form_start(form) }}
         <div class="form-group">
-             {{ form_label(form.server, 'Database server', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
-            <div class="col-sm-7">
+             {{ form_label(form.server, 'Database server', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.server, { 'attr': {'class': 'form-control', 'placeholder': 'ex. localhost'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.server, 'Database name', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.server, 'Database name', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.database, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.user, 'User', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.user, 'User', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.user, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.password, 'Password', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.password, 'Password', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
 
 </div>
 
-    <div class="col-sm-offset-3 col-sm-6 well">
+    <div class="col-xs-offset-3 col-xs-6 well">
         <div class="form-inline">
             <div class="form-group">
-               <div class="col-sm-7"> {{ form_label(form.skip, 'Skip the SMTP confirguration', { 'label_attr': {'class': 'control-label', 'style':'text-align:right;'} }) }} </div>
-                <div class="col-sm-5">
-                    {{ form_widget(form.skip) }}
-                </div>
+               <div class="col-xs-12"> {{ form_label(form.skip, 'Skip the SMTP confirguration', { 'label_attr': {'class': 'control-label', 'style':'text-align:right;'} }) }}&nbsp;&nbsp;&nbsp;{{ form_widget(form.skip) }} </div>
+
             </div>
         </div>
     <div id="smtp">
         <div class="form-group">
-            {{ form_label(form.mailhost, 'SMTP host', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.mailhost, 'SMTP host', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;'} }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.mailhost, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.mailuser, 'User', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.mailuser, 'User', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.mailuser, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         <div class="form-group">
-            {{ form_label(form.mailpassword, 'Password', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;' } }) }}
-            <div class="col-sm-7">
+            {{ form_label(form.mailpassword, 'Password', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;' } }) }}
+            <div class="col-xs-7">
                 {{ form_widget(form.mailpassword, { 'attr': {'class': 'form-control'} }) }}
             </div>
         </div>
         </div>
     </div>
 
-    <div class="col-sm-offset-3 col-sm-6 well">
+    <div class="col-xs-offset-3 col-xs-6 well">
     <div class="form-group">
-        {{ form_label(form.token, 'Token bezpieczeństwa', { 'label_attr': {'class': 'col-sm-5 control-label', 'style':'text-align:right;'} }) }}
-        <div class="col-sm-7">
+        {{ form_label(form.token, 'Security token', { 'label_attr': {'class': 'col-xs-5 control-label', 'style':'text-align:right;'} }) }}
+        <div class="col-xs-7">
             {{ form_widget(form.token, { 'attr': {'class': 'form-control'} }) }}
-            <a href="#" class="what" data-placement="bottom" data-toggle="popover" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</a>
+            <a href="javascript://" class="what" data-placement="left" data-toggle="popover" data-content="{% trans %}This is your random character string which protects your website from CSRF attack.{% endtrans %}">
+                {% trans %}What is it?{% endtrans %}
+            </a>
         </div>
     </div>
-        <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-7">
-                <input type="submit" value="{% trans %}Next{% endtrans %}" class="btn btn-default step1_btn pull-right" />
+    </div>
+
+    <div class="col-xs-offset-3 col-xs-6 well">
+        <div class="form-group" style="margin-top: -20px;">
+                <a href="{{ path('elecms_install') }}" class="btn btn-default step1_btn pull-left">{% trans %}Previous{% endtrans %}</a>
+                <input type="submit" value="{% trans %}Next{% endtrans %}" class="btn btn-primary step1_btn pull-right" />
                 {{ form_end(form) }}
-            </div>
         </div>
     </div>
+
 {% endblock %}
