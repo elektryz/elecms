@@ -1,0 +1,15 @@
+.btn {
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.form-control, .well, .popover {
+    border-radius: 0;
+}
+
+@media (max-width: 992px) {
+    .well div {
+        text-align:left !important;
+    }
+}

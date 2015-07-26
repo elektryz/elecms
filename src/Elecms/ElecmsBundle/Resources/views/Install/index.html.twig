@@ -5,6 +5,7 @@
         <title>{% block title %}Witaj w Elecms!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bundles/elecms/css/bootstrap.min.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/elecms.css') }}" type="text/css" media="all" />
         {% endblock %}
     {% endblock %}
 </head>
@@ -15,7 +16,7 @@
         <h1>{% trans %}Welcome{% endtrans %}!</h1>
         <p>{% trans %}If you want to start an installation of Elecms, click the <strong>Begin Installation</strong> button{% endtrans %}.</p>
         <p>{% trans %}Follow the next steps and check if your inserted data is correct{% endtrans %}.</p>
-        <p><a class="btn btn-default btn-lg" href="{{ path('elecms_step', {'step': 1}) }}" role="button">{% trans %}Begin Installation{% endtrans %} &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{{ path('elecms_step', {'step': 1}) }}" role="button">{% trans %}Begin Installation{% endtrans %} &raquo;</a></p>
     </div>
 </div>
 
