@@ -6,7 +6,7 @@ class Helper
 {
     // Just a text cleaning function which removes "Object:(..." from beginning
     // of the string and "(code X)" from the string ending
-    public static function ValidationCleanString($string)
+    protected static function ValidationCleanString($string)
     {
         $pattern = '/^Object.*:/';
         $preg = preg_replace($pattern,'',$string);
@@ -22,5 +22,20 @@ class Helper
         }
 
         return '- '.$preg;
+    }
+
+    //
+    public static function RenderErrors($error)
+    {
+        $errorsArray = array();
+
+        if (count($error) > 0) {
+            foreach($error as $err)
+                $errorsArray[] = self::ValidationCleanString((string) $err);
+
+            return implode("<br>", $errorsArray);
+        }
+
+        return '';
     }
 }

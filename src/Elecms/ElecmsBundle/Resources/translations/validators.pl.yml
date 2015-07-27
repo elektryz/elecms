@@ -3,3 +3,6 @@ Security token length must be greater or equal than {{ limit }}.: Token bezpiecz
 SMTP host field can not be empty.: Pole o nazwie Serwer SMTP nie może byc puste.
 SMTP user field can not be empty.: Pole o nazwie Użytkownik SMTP nie może byc puste.
 SMTP password field can not be empty.: Pole o nazwie Hasło SMTP nie może być puste.
+Database server field can not be empty.: Pole o nazwie Serwer bazy danych nie może być puste.
+Database name field can not be empty.: Pole o nazwie Hasło nie może być puste.
+User field can not be empty.: Pole o nazwie Użytkownik nie może być puste.

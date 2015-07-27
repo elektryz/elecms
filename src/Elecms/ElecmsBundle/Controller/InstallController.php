@@ -29,33 +29,23 @@ class InstallController extends Controller
         }
     }
 
-    private function step1($request)
+    private function step1(Request $request)
     {
         $db = new DbMailHelper();
 
         $form = $this->createForm(new Step1Form(), $db);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            try {
-                $db->skip ? $db->exportToYml('db') : $db->exportToYml();
-            } catch (\Exception $e) {
-                $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.
-                <br>Komunikat błędu: <br>'.$e->getMessage());
+        if($request->isMethod('POST'))
+        {
+            if ($form->isValid()) {
+                return $this->redirectToRoute('elecms_step', array('step' => 2));
+            } else {
+                $validator = $this->get('validator');
+                $error = $validator->validate($db);
+                $this->addFlash('error', Helper::RenderErrors($error));
             }
-        } else {
-            $validator = $this->get('validator');
-            $error = $validator->validate($db);
-            $errorsArray = array();
-
-            if (count($error) > 0) {
-                foreach($error as $err)
-                    $errorsArray[] = Helper::ValidationCleanString((string) $err);
-
-                $errorString = implode("<br>", $errorsArray);
-                $this->addFlash('error', $errorString);
-            }
-        }
+         }
 
         return $this->render('ElecmsBundle:Install:step1.html.twig', array(
             'form' => $form->createView()

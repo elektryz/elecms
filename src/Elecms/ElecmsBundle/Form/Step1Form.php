@@ -13,7 +13,7 @@ class Step1Form extends AbstractType
             ->add('server', 'text')
             ->add('database', 'text')
             ->add('user', 'text')
-            ->add('password', 'password')
+            ->add('password', 'password', array('required' => false))
             ->add('token', 'text')
             ->add('mailhost', 'text', array('required' => false))
             ->add('mailuser', 'text', array('required' => false))

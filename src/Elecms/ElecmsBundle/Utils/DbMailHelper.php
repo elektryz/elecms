@@ -8,10 +8,29 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class DbMailHelper
 {
+    /**
+     * @Assert\NotBlank(
+     *      message = "Database server field can not be empty."
+     * )
+     */
     protected $server;
+
+    /**
+     * @Assert\NotBlank(
+     *      message = "Database name field can not be empty."
+     * )
+     */
     protected $database;
+
+    /**
+     * @Assert\NotBlank(
+     *      message = "User field can not be empty."
+     * )
+     */
     protected $user;
+
     protected $password;
+
     protected $mailhost;
     protected $mailuser;
     protected $mailpassword;
@@ -23,6 +42,7 @@ class DbMailHelper
      * )
      */
     protected $token;
+
     public $skip;
 
     public function getServer()
@@ -158,32 +178,62 @@ class DbMailHelper
     public function validate(ExecutionContextInterface $context)
     {
         // Check database connection
+        $this->validateDatabase($context);
+
+        // Chech if export database params to yml file is possible
+        if($this->skip) {
+            $this->validateCreateYml($context, false);
+        } else {
+            // If you don't want to skip SMTP configuration, you must fill all fields
+            $this->validateSMTP($context);
+
+            $this->validateCreateYml($context, true);
+        }
+    }
+
+    /*
+     * Validation functions
+     */
+
+    protected function validateDatabase(ExecutionContextInterface $context)
+    {
         try {
             $pdo = new \PDO("mysql:host={$this->getServer()};dbname={$this->getDatabase()}",
                 $this->getUser(), $this->getPassword());
         } catch(\Exception $e) {
-           $context->buildViolation('Database parameters are incorrect.')
+            $context->buildViolation('Database parameters are incorrect.')
                 ->atPath('server')
                 ->addViolation();
         }
+    }
 
-        // If you don't want to skip SMTP configuration, fill all fields
-        if(!$this->skip) {
-           if(trim($this->getMailhost()) == "") {
-               $context->buildViolation('SMTP host field can not be empty.')
-                   ->atPath('mailhost')
-                   ->addViolation();
-           }
-           if(trim($this->getMailuser()) == "") {
-                $context->buildViolation('SMTP user field can not be empty.')
-                    ->atPath('mailuser')
-                    ->addViolation();
-            }
-           if(trim($this->getMailpassword()) == "") {
-                $context->buildViolation('SMTP password field can not be empty.')
-                    ->atPath('mailpassword')
-                    ->addViolation();
-            }
+    protected function validateSMTP(ExecutionContextInterface $context)
+    {
+        if(trim($this->getMailhost()) == "") {
+            $context->buildViolation('SMTP host field can not be empty.')
+                ->atPath('mailhost')
+                ->addViolation();
+        }
+        if(trim($this->getMailuser()) == "") {
+            $context->buildViolation('SMTP user field can not be empty.')
+                ->atPath('mailuser')
+                ->addViolation();
+        }
+        if(trim($this->getMailpassword()) == "") {
+            $context->buildViolation('SMTP password field can not be empty.')
+                ->atPath('mailpassword')
+                ->addViolation();
+        }
+    }
+
+    protected function validateCreateYml(ExecutionContextInterface $context, $all = false)
+    {
+        try {
+            $all == false ? $this->exportToYml('db') : $this->exportToYml();
+        } catch (\Exception $e) {
+            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/parameters.yml"
+            does not exist or you have not enough permissions to write it,'.$e->getMessage())
+                ->addViolation();
         }
     }
 
