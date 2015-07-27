@@ -3,6 +3,8 @@
 namespace Elecms\ElecmsBundle\Utils;
 
 use Symfony\Component\Yaml\Dumper;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class DbMailHelper
 {
@@ -13,6 +15,13 @@ class DbMailHelper
     protected $mailhost;
     protected $mailuser;
     protected $mailpassword;
+
+    /**
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "Security token length must be greater or equal than {{ limit }}."
+     * )
+     */
     protected $token;
     public $skip;
 
@@ -141,6 +150,41 @@ class DbMailHelper
         $yaml = $dumper->dump($params);
 
         return file_put_contents(__DIR__.'/../Resources/config/parameters_test.yml', $yaml) ? true : false;
+    }
+
+    /**
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context)
+    {
+        // Check database connection
+        try {
+            $pdo = new \PDO("mysql:host={$this->getServer()};dbname={$this->getDatabase()}",
+                $this->getUser(), $this->getPassword());
+        } catch(\Exception $e) {
+           $context->buildViolation('Database parameters are incorrect.')
+                ->atPath('server')
+                ->addViolation();
+        }
+
+        // If you don't want to skip SMTP configuration, fill all fields
+        if(!$this->skip) {
+           if(trim($this->getMailhost()) == "") {
+               $context->buildViolation('SMTP host field can not be empty.')
+                   ->atPath('mailhost')
+                   ->addViolation();
+           }
+           if(trim($this->getMailuser()) == "") {
+                $context->buildViolation('SMTP user field can not be empty.')
+                    ->atPath('mailuser')
+                    ->addViolation();
+            }
+           if(trim($this->getMailpassword()) == "") {
+                $context->buildViolation('SMTP password field can not be empty.')
+                    ->atPath('mailpassword')
+                    ->addViolation();
+            }
+        }
     }
 
 }

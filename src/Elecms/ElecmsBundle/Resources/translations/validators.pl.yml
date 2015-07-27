@@ -1,0 +1,5 @@
+Database parameters are incorrect.: Wprowadzone parametry połączenia z bazą danych są nieprawidłowe.
+Security token length must be greater or equal than {{ limit }}.: Token bezpieczeństwa musi mieć długość większą lub równą {{ limit }}.
+SMTP host field can not be empty.: Pole o nazwie Serwer SMTP nie może byc puste.
+SMTP user field can not be empty.: Pole o nazwie Użytkownik SMTP nie może byc puste.
+SMTP password field can not be empty.: Pole o nazwie Hasło SMTP nie może być puste.

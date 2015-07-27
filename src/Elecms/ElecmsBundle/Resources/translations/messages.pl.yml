@@ -11,11 +11,14 @@ Database name: Nazwa bazy
 User: Użytkownik
 Password: Hasło
 SMTP host: Serwer SMTP
+SMTP user: Użytkownik SMTP
+SMTP password: Hasło SMTP
 Skip the SMTP confirguration: Pomiń konfigurację serwera SMTP poczty e-mail
 Token bezpieczeństwa: Security token
 ex. localhost: np. localhost
-Database parameters are incorrect.: Wprowadzone parametry połączenia z bazą danych są nieprawidłowe.
-Security token: Token bezpieczeństwa
+Security token (min. 10 chars): Token bezpieczeństwa (min. 10 znaków)
 What is it?: Co to jest?
 This is your random character string which protects your website from CSRF attack.: Pole przeznaczone na wpisanie lub wygenerowanie losowych znaków, które będą pomagały w ochronie przed atakami CSRF.
 Previous: Wstecz
+Errors found: Wystąpiły następujące błędy
+Generate: Generuj

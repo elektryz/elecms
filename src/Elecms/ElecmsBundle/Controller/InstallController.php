@@ -6,6 +6,7 @@ use Elecms\ElecmsBundle\Form\Step1Form;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Elecms\ElecmsBundle\Utils\DbMailHelper;
+use Elecms\ElecmsBundle\Utils\Helper;
 
 
 class InstallController extends Controller
@@ -21,14 +22,14 @@ class InstallController extends Controller
         switch($step)
         {
             case 1:
-                return $this->step1($step, $request);
+                return $this->step1($request);
                 break;
             default:
                 throw $this->createNotFoundException();
         }
     }
 
-    private function step1($step, $request)
+    private function step1($request)
     {
         $db = new DbMailHelper();
 
@@ -38,20 +39,26 @@ class InstallController extends Controller
         if ($form->isValid()) {
             try {
                 $db->skip ? $db->exportToYml('db') : $db->exportToYml();
-                try {
-                    $pdo = new \PDO("mysql:host={$db->getServer()};dbname={$db->getDatabase()}", $db->getUser(), $db->getPassword());
-                    return $this->redirectToRoute('elecms_step', array('step' => 2));
-                } catch(\PDOException $e) {
-                    $this->addFlash('error', $this->get('translator')->trans('Database parameters are incorrect.'));
-                }
             } catch (\Exception $e) {
-                $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.<br>Komunikat błędu: <br>'.$e->getMessage());
+                $this->addFlash('error', 'Plik nie istnieje, bądź jego uprawnienia nie są wystarczające.
+                <br>Komunikat błędu: <br>'.$e->getMessage());
+            }
+        } else {
+            $validator = $this->get('validator');
+            $error = $validator->validate($db);
+            $errorsArray = array();
+
+            if (count($error) > 0) {
+                foreach($error as $err)
+                    $errorsArray[] = Helper::ValidationCleanString((string) $err);
+
+                $errorString = implode("<br>", $errorsArray);
+                $this->addFlash('error', $errorString);
             }
         }
 
         return $this->render('ElecmsBundle:Install:step1.html.twig', array(
-            'step' => $step,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ));
     }
 

@@ -61,7 +61,7 @@
         </div>
         <div class="form-group">
             <div class="col-xs-12 col-md-5" style="text-align:right;">
-            {{ form_label(form.mailuser, 'User', { 'label_attr': {'style':'text-align:right;' } }) }}
+            {{ form_label(form.mailuser, 'SMTP user', { 'label_attr': {'style':'text-align:right;' } }) }}
             </div>
             <div class="col-xs-12 col-md-7">
                 {{ form_widget(form.mailuser, { 'attr': {'class': 'form-control'} }) }}
@@ -69,7 +69,7 @@
         </div>
         <div class="form-group">
             <div class="col-xs-12 col-md-5" style="text-align:right;">
-            {{ form_label(form.mailpassword, 'Password', { 'label_attr': {'style':'text-align:right;' } }) }}
+            {{ form_label(form.mailpassword, 'SMTP password', { 'label_attr': {'style':'text-align:right;' } }) }}
             </div>
             <div class="col-xs-12 col-md-7">
                 {{ form_widget(form.mailpassword, { 'attr': {'class': 'form-control'} }) }}
@@ -81,14 +81,20 @@
     <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 well">
     <div class="form-group">
         <div class="col-xs-12 col-md-5">
-        {{ form_label(form.token, 'Security token', { 'label_attr': {'style':'text-align:right;'} }) }}
+        {{ form_label(form.token, 'Security token (min. 10 chars)', { 'label_attr': {'style':'text-align:right;'} }) }}
+            <br /><a href="javascript://" class="what" data-placement="top" data-toggle="popover" data-content="{% trans %}This is your random character string which protects your website from CSRF attack.{% endtrans %}">
+                {% trans %}What is it?{% endtrans %}
+            </a>
             </div>
             <div class="col-xs-12 col-md-7">
             {{ form_widget(form.token, { 'attr': {'class': 'form-control'} }) }}
-            <a href="javascript://" class="what" data-placement="top" data-toggle="popover" data-content="{% trans %}This is your random character string which protects your website from CSRF attack.{% endtrans %}">
-                {% trans %}What is it?{% endtrans %}
-            </a>
+                <button class="btn btn-default" onClick="randomString();">{% trans %}Generate{% endtrans %}</button>
+            </div>
+
+        <div class="col-xs-12 col-md-5">
+
         </div>
+
     </div>
     </div>
 
