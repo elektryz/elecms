@@ -1,0 +1,61 @@
+<?php
+
+namespace Elecms\ElecmsBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user_elecms")
+ */
+class UserElecms extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(length=100)
+     */
+    protected $login;
+
+    /**
+     * @ORM\Column(length=500)
+     */
+    protected $password;
+
+    /**
+     * @ORM\Column(length=100)
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(length=50)
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(length=50)
+     */
+    protected $lastName;
+
+    /**
+     * @ORM\Column(length=30)
+     */
+    protected $ipCreated;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $registerDate;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+}

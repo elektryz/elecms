@@ -27,7 +27,7 @@ class Setting
     protected $value;
 
     /**
-     * @ORM\Column(type="datetime", length=100)
+     * @ORM\Column(type="datetime")
      */
     protected $modified;
 
