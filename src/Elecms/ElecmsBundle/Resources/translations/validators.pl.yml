@@ -6,3 +6,5 @@ SMTP password field can not be empty.: Pole o nazwie Hasło SMTP nie może być 
 Database server field can not be empty.: Pole o nazwie Serwer bazy danych nie może być puste.
 Database name field can not be empty.: Pole o nazwie Hasło nie może być puste.
 User field can not be empty.: Pole o nazwie Użytkownik nie może być puste.
+Inserted passwords are different.: Wprowadzone hasła muszą być identyczne.
+The email '{{ value }}' is not a valid email.: Adres '{{ value }}' jest nieprawidłowy.

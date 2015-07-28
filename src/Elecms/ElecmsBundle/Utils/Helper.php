@@ -24,7 +24,7 @@ class Helper
         return '- '.$preg;
     }
 
-    //
+
     public static function RenderErrors($error)
     {
         $errorsArray = array();

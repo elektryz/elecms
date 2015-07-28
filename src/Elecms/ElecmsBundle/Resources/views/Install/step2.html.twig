@@ -1,0 +1,56 @@
+{% extends "ElecmsBundle:Install:step.html.twig" %}
+
+{% block head %}
+    {% set step = 'Krok 2' %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6"><h3>Krok 2 - Dane administratora</h3></div>
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 well">
+
+        {{ form_start(form) }}
+        <div class="form-group">
+            <div class="col-xs-12 col-md-5" style="text-align:right;">
+                {{ form_label(form.username, 'Username') }}
+            </div>
+            <div class="col-xs-12 col-md-7">
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-md-5" style="text-align:right;">
+                {{ form_label(form.email, 'E-mail') }}
+            </div>
+            <div class="col-xs-12 col-md-7">
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-md-5" style="text-align:right;">
+                {{ form_label(form.password, 'Password') }}
+            </div>
+            <div class="col-xs-12 col-md-7">
+                {{ form_widget(form.password, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-md-5" style="text-align:right;">
+                {{ form_label(form.password_confirm, 'Confirm password') }}
+            </div>
+            <div class="col-xs-12 col-md-7">
+                {{ form_widget(form.password_confirm, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 well">
+        <div class="form-group" style="margin-top: -20px;">
+            <a href="{{ path('elecms_step', {'step': 1}) }}" class="btn btn-default step1_btn pull-left">&laquo; {% trans %}Previous{% endtrans %}</a>
+            <input type="submit" value="{% trans %}Next{% endtrans %} &raquo;" class="btn btn-primary step1_btn pull-right" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

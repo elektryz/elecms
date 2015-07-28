@@ -4,6 +4,8 @@ namespace Elecms\ElecmsBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
@@ -18,11 +20,27 @@ class UserElecms extends BaseUser
      */
     protected $id;
 
+    /**
+     * @var string
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
+     */
+    protected $email;
+
+    /**
+     * Here, we won't add any Doctrine annotations because
+     * that field is not needed in our database, just in our form
+     */
+    protected $password_confirm;
+
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
+
 
     /**
      * Get id
@@ -34,164 +52,27 @@ class UserElecms extends BaseUser
         return $this->id;
     }
 
-    /**
-     * Set login
-     *
-     * @param string $login
-     * @return UserElecms
-     */
-    public function setLogin($login)
+    public function getPasswordConfirm()
     {
-        $this->login = $login;
+        return $this->password_confirm;
+    }
 
-        return $this;
+    public function setPasswordConfirm($password_confirm)
+    {
+        $this->password_confirm = $password_confirm;
     }
 
     /**
-     * Get login
-     *
-     * @return string 
+     * @Assert\Callback
      */
-    public function getLogin()
+    public function validate(ExecutionContextInterface $context)
     {
-        return $this->login;
+        if($this->getPassword() != $this->getPasswordConfirm())
+        {
+            $context->buildViolation('Inserted passwords are different.')
+                ->atPath('password')
+                ->addViolation();
+        }
     }
 
-    /**
-     * Set password
-     *
-     * @param string $password
-     * @return UserElecms
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get password
-     *
-     * @return string 
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return UserElecms
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     * @return UserElecms
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string 
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     * @return UserElecms
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string 
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * Set ipCreated
-     *
-     * @param string $ipCreated
-     * @return UserElecms
-     */
-    public function setIpCreated($ipCreated)
-    {
-        $this->ipCreated = $ipCreated;
-
-        return $this;
-    }
-
-    /**
-     * Get ipCreated
-     *
-     * @return string 
-     */
-    public function getIpCreated()
-    {
-        return $this->ipCreated;
-    }
-
-    /**
-     * Set registerDate
-     *
-     * @param \DateTime $registerDate
-     * @return UserElecms
-     */
-    public function setRegisterDate($registerDate)
-    {
-        $this->registerDate = $registerDate;
-
-        return $this;
-    }
-
-    /**
-     * Get registerDate
-     *
-     * @return \DateTime 
-     */
-    public function getRegisterDate()
-    {
-        return $this->registerDate;
-    }
 }
