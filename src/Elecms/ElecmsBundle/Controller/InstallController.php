@@ -5,7 +5,7 @@ namespace Elecms\ElecmsBundle\Controller;
 use Elecms\ElecmsBundle\Form\Step1Form;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Elecms\ElecmsBundle\Utils\DbMailHelper;
+use Elecms\ElecmsBundle\Utils\DbMail;
 use Elecms\ElecmsBundle\Utils\Helper;
 
 
@@ -31,7 +31,7 @@ class InstallController extends Controller
 
     private function step1(Request $request)
     {
-        $db = new DbMailHelper();
+        $db = new DbMail();
 
         $form = $this->createForm(new Step1Form(), $db);
         $form->handleRequest($request);

@@ -6,7 +6,7 @@ use Symfony\Component\Yaml\Dumper;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
-class DbMailHelper
+class DbMail
 {
     /**
      * @Assert\NotBlank(

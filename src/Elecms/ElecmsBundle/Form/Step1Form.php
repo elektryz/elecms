@@ -25,7 +25,7 @@ class Step1Form extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Elecms\ElecmsBundle\Utils\DbMailHelper'
+            'data_class' => 'Elecms\ElecmsBundle\Utils\DbMail'
         ));
     }
 
