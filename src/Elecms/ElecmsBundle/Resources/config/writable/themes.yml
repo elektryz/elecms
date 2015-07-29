@@ -1,0 +1,4 @@
+parameters:
+    ActiveTheme: elecmsDefault
+    AllThemes: ['elecmsDefault']
+    AsseticIntegration: true

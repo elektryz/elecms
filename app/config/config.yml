@@ -79,6 +79,7 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Sonata Admin Configuration
 sonata_admin:
     title: Elecms Admin Panel
     security:
@@ -105,7 +106,14 @@ sonata_block:
         sonata.block.service.action:
         sonata.block.service.rss:
 
+# FOSUserBundle
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Elecms\ElecmsBundle\Entity\UserElecms
+
+# LiipThemeBundle
+liip_theme:
+    themes: "%AllThemes%"
+    active_theme: "%ActiveTheme%"
+    assetic_integration: "%AsseticIntegration%"

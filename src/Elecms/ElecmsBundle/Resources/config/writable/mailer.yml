@@ -1,0 +1,1 @@
+{ parameters: { mailer_transport: smtp, mailer_host: cos, mailer_user: tam, mailer_password: llsaosals } }

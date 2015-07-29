@@ -151,7 +151,7 @@ class DbMail
 
             $yaml = $dumper->dump($mailParams);
 
-            file_put_contents(__DIR__.'/../Resources/config/mailer.yml', $yaml) ? true : false;
+            file_put_contents(__DIR__.'/../Resources/config/writable/mailer.yml', $yaml) ? true : false;
 
         }
             $params = array(
@@ -167,7 +167,7 @@ class DbMail
 
             $yaml = $dumper->dump($params);
 
-            return file_put_contents(__DIR__.'/../Resources/config/parameters_test.yml', $yaml) ? true : false;
+            return file_put_contents(__DIR__.'/../Resources/config/writable/parameters.yml', $yaml) ? true : false;
 
     }
 
@@ -230,7 +230,7 @@ class DbMail
         try {
             $this->exportToYml(true);
         } catch (\Exception $e) {
-            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/parameters.yml" does not exist or you have not enough permissions to write it.')
+            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/writable/parameters.yml" does not exist or you have not enough permissions to write it.')
                 ->addViolation();
         }
 
@@ -238,7 +238,7 @@ class DbMail
             try {
                 $this->exportToYml();
             } catch (\Exception $e) {
-                $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/mailer.yml" does not exist or you have not enough permissions to write it.')
+                $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/writable/mailer.yml" does not exist or you have not enough permissions to write it.')
                     ->addViolation();
             }
         }

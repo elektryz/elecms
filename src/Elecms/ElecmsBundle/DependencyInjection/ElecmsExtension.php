@@ -23,8 +23,10 @@ class ElecmsExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
-        $loader->load('parameters.yml');
-        $loader->load('elecms.yml');
+        $subDirectory = 'writable/';
+        $loader->load($subDirectory.'services.yml');
+        $loader->load($subDirectory.'parameters.yml');
+        $loader->load($subDirectory.'elecms.yml');
+        $loader->load($subDirectory.'themes.yml');
     }
 }

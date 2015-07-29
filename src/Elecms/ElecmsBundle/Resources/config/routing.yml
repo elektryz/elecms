@@ -1,3 +1,7 @@
+elecms_homepage:
+    path:     /
+    defaults: { _controller: ElecmsBundle:Page:index }
+
 elecms_install:
     path:     /{_locale}/install/
     defaults: { _controller: ElecmsBundle:Install:index }
@@ -26,3 +30,7 @@ _sonata_admin:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+liip_theme:
+    resource: "@LiipThemeBundle/Resources/config/routing.xml"
+    prefix: /theme
