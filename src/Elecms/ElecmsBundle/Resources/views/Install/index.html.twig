@@ -14,9 +14,11 @@
 <div class="jumbotron">
     <div class="container">
         <h1>{% trans %}Welcome{% endtrans %}!</h1>
-        <p>{% trans %}If you want to start an installation of Elecms, click the <strong>Begin Installation</strong> button{% endtrans %}.</p>
-        <p>{% trans %}Follow the next steps and check if your inserted data is correct{% endtrans %}.</p>
-        <p><a class="btn btn-primary btn-lg" href="{{ path('elecms_step', {'step': 1}) }}" role="button">{% trans %}Begin Installation{% endtrans %} &raquo;</a></p>
+        <p>{% trans %}If you want to start an installation of Elecms, click the chosen flag icon{% endtrans %}.</p>
+        <p>{% trans %}Select your language and follow the next steps{% endtrans %}.</p>
+            <a href="{{ path('elecms_step', {'step': 1, '_locale' : 'en'}) }}"><img src="{{ asset('bundles/elecms/images/USA.png') }}"  /></a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="{{ path('elecms_step', {'step': 1, '_locale' : 'pl'}) }}"><img src="{{ asset('bundles/elecms/images/Poland.png') }}" /></a>
     </div>
 </div>
 

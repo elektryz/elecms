@@ -135,24 +135,25 @@ class DbMail
         $this->token = $token;
     }
 
-    public function exportToYml($what = 'all')
+    public function exportToYml($skipped = false)
     {
-        if($what == 'all') {
-            $params = array(
+        $dumper = new Dumper();
+
+        if($skipped == false) {
+            $mailParams = array(
                 'parameters' => array(
-                    'database_host' => $this->getServer(),
-                    'database_port' => null,
-                    'database_name' => $this->getDatabase(),
-                    'database_user' => $this->getUser(),
-                    'database_password' => $this->getPassword(),
-                    'secret' => $this->getToken(),
                     'mailer_transport' => 'smtp',
                     'mailer_host' => $this->getMailhost(),
                     'mailer_user' => $this->getMailuser(),
                     'mailer_password' => $this->getMailpassword()
                 )
             );
-        } else {
+
+            $yaml = $dumper->dump($mailParams);
+
+            file_put_contents(__DIR__.'/../Resources/config/mailer.yml', $yaml) ? true : false;
+
+        }
             $params = array(
                 'parameters' => array(
                     'database_host' => $this->getServer(),
@@ -163,13 +164,11 @@ class DbMail
                     'secret' => $this->getToken(),
                 )
             );
-        }
 
-        $dumper = new Dumper();
+            $yaml = $dumper->dump($params);
 
-        $yaml = $dumper->dump($params);
+            return file_put_contents(__DIR__.'/../Resources/config/parameters_test.yml', $yaml) ? true : false;
 
-        return file_put_contents(__DIR__.'/../Resources/config/parameters_test.yml', $yaml) ? true : false;
     }
 
     /**
@@ -182,12 +181,12 @@ class DbMail
 
         // Chech if export database params to yml file is possible
         if($this->skip) {
-            $this->validateCreateYml($context, false);
+            $this->validateCreateYml($context, true);
         } else {
             // If you don't want to skip SMTP configuration, you must fill all fields
             $this->validateSMTP($context);
 
-            $this->validateCreateYml($context, true);
+            $this->validateCreateYml($context);
         }
     }
 
@@ -226,14 +225,22 @@ class DbMail
         }
     }
 
-    protected function validateCreateYml(ExecutionContextInterface $context, $all = false)
+    protected function validateCreateYml(ExecutionContextInterface $context, $skip = false)
     {
         try {
-            $all == false ? $this->exportToYml('db') : $this->exportToYml();
+            $this->exportToYml(true);
         } catch (\Exception $e) {
-            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/parameters.yml"
-            does not exist or you have not enough permissions to write it,'.$e->getMessage())
+            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/parameters.yml" does not exist or you have not enough permissions to write it.')
                 ->addViolation();
+        }
+
+        if(!$skip) {
+            try {
+                $this->exportToYml();
+            } catch (\Exception $e) {
+                $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/mailer.yml" does not exist or you have not enough permissions to write it.')
+                    ->addViolation();
+            }
         }
     }
 

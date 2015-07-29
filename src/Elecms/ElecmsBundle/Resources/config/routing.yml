@@ -4,6 +4,10 @@ elecms_install:
     requirements:
             _locale: pl|en
 
+elecms_lang_install:
+    path:     /install/
+    defaults: { _controller: ElecmsBundle:Install:index }
+
 elecms_step:
     path:     /{_locale}/install/{step}
     defaults: { _controller: ElecmsBundle:Install:step }

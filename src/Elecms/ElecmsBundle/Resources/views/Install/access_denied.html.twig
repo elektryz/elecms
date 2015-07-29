@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <title>{% block title %}Elecms - {% trans %}Access denied{% endtrans %}{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/bootstrap.min.css') }}" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{ asset('bundles/elecms/css/elecms.css') }}" type="text/css" media="all" />
+        {% endblock %}
+    {% endblock %}
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>{% trans %}Access denied{% endtrans %}!</h1>
+        <p>{% trans %}It seems like you have not passed the previous step(s)...{% endtrans %}.</p>
+        <p>{% trans %}Click below button to go to the first step.{% endtrans %}.</p>
+        <a class="btn btn-primary btn-large" href="{{ path('elecms_step', {'step': 1}) }}">{% trans %}Try again{% endtrans %}</a>
+    </div>
+</div>
+
+<div class="container">
+    <hr>
+    <footer>
+        <p>&copy; 2015 Elecms</p>
+    </footer>
+</div> <!-- /container -->
+
+</body>
+</html>

@@ -1,11 +1,11 @@
-# Ekran powitalny
+# Welcome screen
 Welcome: Witaj
-If you want to start an installation of Elecms, click the <strong>Begin Installation</strong> button: Aby rozpocząć instalację systemu Elecms, kliknij w poniższy przycisk
-Follow the next steps and check if your inserted data is correct: Proszę postępować zgodnie z instrukcjami na kolejnych ekranach
+If you want to start an installation of Elecms, click the chosen flag icon: Aby rozpocząć instalację systemu Elecms, kliknij w wybraną flagę
+Select your language and follow the next steps: Wybierz język i postępuj zgodnie z instrukcjami na kolejnych ekranach
 Begin Installation: Rozpocznij Instalację
 Next: Dalej
 
-# Krok 1
+# Step 1
 Database server: Serwer bazy danych
 Database name: Nazwa bazy
 User: Użytkownik
@@ -23,8 +23,20 @@ Previous: Wstecz
 Errors found: Wystąpiły następujące błędy
 Generate: Generuj
 
-# Krok 2
+# Step 2
 Confirm password: Potwierdź hasło
 Username: Login
 E-mail: E-mail
 The passwords are different.: Wprowadzone hasła są różne.
+
+# Step 3
+Those fields are not required. You can fill them later in the Admin Panel.: Poniższe pola nie są wymagane Możesz je wypełnić później w Panelu Admina.
+Website title: Tytuł strony
+Tags (comma separated): Tagi (oddzielone przecinkami)
+Description: Opis strony
+
+# Access denied
+Access denied: Dostęp zabroniony
+It seems like you have not passed the previous step(s)...: Wygląda na to, że poprzednie etapy instalacji nie zostały zakończone powodzeniem...
+Click below button to go to the first step.: Należy przejść do pierwszego kroku klikając poniższy przycisk.
+Try again: Spróbuj ponownie
