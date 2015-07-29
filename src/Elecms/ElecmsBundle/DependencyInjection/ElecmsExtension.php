@@ -28,5 +28,6 @@ class ElecmsExtension extends Extension
         $loader->load($subDirectory.'parameters.yml');
         $loader->load($subDirectory.'elecms.yml');
         $loader->load($subDirectory.'themes.yml');
+        $loader->load('admin.yml');
     }
 }
