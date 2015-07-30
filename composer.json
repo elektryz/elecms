@@ -23,7 +23,8 @@
         "sonata-project/admin-bundle": "^2.3",
         "sonata-project/doctrine-orm-admin-bundle": "^2.3",
         "friendsofsymfony/user-bundle": "^1.3",
-        "liip/theme-bundle": "dev-master"
+        "liip/theme-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "^2.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

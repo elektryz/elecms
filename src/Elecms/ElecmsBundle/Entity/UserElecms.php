@@ -34,6 +34,7 @@ class UserElecms extends BaseUser
      * that field is not needed in our database, just in our form
      */
     protected $password_confirm;
+    protected $skip_validation;
 
     public function __construct()
     {
@@ -62,16 +63,28 @@ class UserElecms extends BaseUser
         $this->password_confirm = $password_confirm;
     }
 
+    public function getSkipValidation()
+    {
+        return $this->skip_validation;
+    }
+
+    public function setSkipValidation($skip_validation)
+    {
+        $this->skip_validation = $skip_validation;
+    }
+
     /**
      * @Assert\Callback
      */
     public function validate(ExecutionContextInterface $context)
     {
+        if($this->getPasswordConfirm() && $this->getPassword()) {
         if($this->getPassword() != $this->getPasswordConfirm())
         {
             $context->buildViolation('Inserted passwords are different.')
                 ->atPath('password')
                 ->addViolation();
+        }
         }
     }
 

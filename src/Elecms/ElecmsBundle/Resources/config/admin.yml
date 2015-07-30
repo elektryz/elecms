@@ -1,5 +1,5 @@
 services:
-    sonata.admin.post:
+    sonata.admin.userelecms:
         class: Elecms\ElecmsBundle\Admin\UserElecmsAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
@@ -9,3 +9,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [ElecmsBundle]]
+    sonata.admin.page:
+            class: Elecms\ElecmsBundle\Admin\PageAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Page" }
+            arguments:
+                - ~
+                - Elecms\ElecmsBundle\Entity\Page
+                - ~
+            calls:
+                - [ setTranslationDomain, [ElecmsBundle]]

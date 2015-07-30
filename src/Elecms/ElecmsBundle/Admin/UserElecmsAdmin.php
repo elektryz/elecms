@@ -6,40 +6,85 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Elecms\ElecmsBundle\Entity\UserElecms;
 
 class UserElecmsAdmin extends Admin
 {
-    // Fields to be shown on create/edit forms
+    // EDIT FORM
     protected function configureFormFields(FormMapper $formMapper)
     {
+
+        $container = $this->getConfigurationPool()->getContainer();
+        $roles = $container->getParameter('security.role_hierarchy.roles');
+
+        $rolesChoices = self::flattenRoles($roles);
+
+        unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin, as we don't have to display that role
+
         $formMapper
-            ->add('email', 'text', array('label' => 'Email'))
-            ->add('username', 'entity', array('class' => 'Elecms\ElecmsBundle\Entity\UserElecms'))
-            ->add('lastLogin') //if no type is specified, SonataAdminBundle tries to guess it
+            ->add('email', 'text', array('label' => 'E-mail'))
+            ->add('username', 'text')
+            ->add('roles', 'choice', array(
+                'choices'  => $rolesChoices,
+                'multiple' => true
+            ))
         ;
     }
 
-    // Fields to be shown on filter forms
+    // FILTERS
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        $container = $this->getConfigurationPool()->getContainer();
+        $roles = $container->getParameter('security.role_hierarchy.roles');
+
+        $rolesChoices = self::flattenRoles($roles);
+
+        unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin, as we don't have to display that role
+
+
         $datagridMapper
             ->add('email')
             ->add('username')
+            ->add('roles', 'doctrine_orm_string',
+                array(),
+                'choice',
+                array('choices' => $rolesChoices
+                ))
         ;
     }
 
-    // Fields to be shown on lists
+    // LIST
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('email')
+            ->addIdentifier('email', null, array('label' => 'E-mail'))
             ->add('username')
             ->add('lastLogin')
+            ->add('roles','user_roles')
         ;
     }
 
     public function getExportFields()
     {
         return array('email','username');
+    }
+
+    protected static function flattenRoles($rolesHierarchy)
+    {
+        $flatRoles = array();
+        foreach($rolesHierarchy as $roles) {
+
+            if(empty($roles)) {
+                continue;
+            }
+
+            foreach($roles as $role) {
+                if(!isset($flatRoles[$role])) {
+                    $flatRoles[$role] = substr($role,5);
+                }
+            }
+        }
+
+        return $flatRoles;
     }
 }

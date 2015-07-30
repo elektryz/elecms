@@ -106,6 +106,7 @@ class InstallController extends Controller
                 $admin->setUsername($admin->getUsername());
                 $admin->setPlainPassword($form->get('password')->getData());
                 $admin->setEmail($admin->getEmail());
+                $admin->setLastLogin(new \DateTime());
                 $admin->setEnabled(true);
                 $admin->setSuperAdmin(true);
 
@@ -195,4 +196,4 @@ class InstallController extends Controller
     }
 
 
-    }
+}
