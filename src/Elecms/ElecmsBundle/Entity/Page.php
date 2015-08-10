@@ -5,6 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="page")
  */
 class Page
@@ -22,6 +23,11 @@ class Page
     protected $created_by;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $created;
+
+    /**
      * @ORM\Column(type="string", nullable=true)
      */
     protected $title;
@@ -37,7 +43,7 @@ class Page
     protected $modified;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $modified_by;
 
@@ -221,5 +227,42 @@ class Page
     public function getIsActive()
     {
         return $this->is_active;
+    }
+
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Page
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+
+    /** @ORM\PrePersist */
+    public function doOtherStuffOnPrePersist()
+    {
+        $this->setCreated(new \DateTime());
+    }
+
+    /** @ORM\PreUpdate */
+    public function doOtherStuffOnPreUpdate()
+    {
+        $this->setModified(new \DateTime());
     }
 }
