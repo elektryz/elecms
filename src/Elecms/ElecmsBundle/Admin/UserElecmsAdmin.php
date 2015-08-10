@@ -24,6 +24,8 @@ class UserElecmsAdmin extends Admin
         $formMapper
             ->add('email', 'text', array('label' => 'E-mail'))
             ->add('username', 'text')
+            ->add('password','password', array('required' => false))
+            ->add('enabled', null, array('required' => false))
             ->add('roles', 'choice', array(
                 'choices'  => $rolesChoices,
                 'multiple' => true
@@ -66,7 +68,7 @@ class UserElecmsAdmin extends Admin
 
     public function getExportFields()
     {
-        return array('email','username');
+        return array('email','username','lastLogin');
     }
 
     protected static function flattenRoles($rolesHierarchy)

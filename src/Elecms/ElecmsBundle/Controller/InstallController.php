@@ -15,7 +15,6 @@ use Elecms\ElecmsBundle\Utils\DbMail;
 use Elecms\ElecmsBundle\Utils\Helper;
 use Elecms\ElecmsBundle\Utils\SettingData;
 use Elecms\ElecmsBundle\Entity\UserElecms;
-use Elecms\ElecmsBundle\Entity\Setting;
 
 
 class InstallController extends Controller
@@ -65,6 +64,27 @@ class InstallController extends Controller
     {
         $db = new DbMail();
 
+        if($session->get('server'))
+            $db->setServer($session->get('server'));
+
+        if($session->get('database'))
+            $db->setDatabase($session->get('database'));
+
+        if($session->get('user'))
+            $db->setUser($session->get('user'));
+
+        if($session->get('mailhost'))
+            $db->setMailhost($session->get('mailhost'));
+
+        if($session->get('mailuser'))
+            $db->setMailuser($session->get('mailuser'));
+
+        if($session->get('token'))
+            $db->setToken($session->get('token'));
+
+        if($session->get('skip'))
+            $db->setSkip($session->get('skip'));
+
         $form = $this->createForm(new Step1Form(), $db);
         $form->handleRequest($request);
 
@@ -72,6 +92,15 @@ class InstallController extends Controller
         {
             if ($form->isValid()) {
                 $session->set('steps_finished', '1');
+
+                $session->set('server', $db->getServer());
+                $session->set('database', $db->getDatabase());
+                $session->set('user', $db->getUser());
+                $session->set('mailhost', $db->getMailhost());
+                $session->set('mailuser', $db->getMailuser());
+                $session->set('token', $db->getToken());
+                $session->set('skip', $db->getSkip());
+
                 return $this->redirectToRoute('elecms_step', array('step' => 2));
             } else {
                 $validator = $this->get('validator');
@@ -96,6 +125,12 @@ class InstallController extends Controller
 
         $admin = new UserElecms();
 
+        if($session->get('username'))
+            $admin->setUsername($session->get('username'));
+
+        if($session->get('email'))
+            $admin->setEmail($session->get('email'));
+
         $form = $this->createForm(new Step2Form(), $admin);
         $form->handleRequest($request);
 
@@ -103,20 +138,43 @@ class InstallController extends Controller
         {
             if ($form->isValid()) {
 
-                $admin->setUsername($admin->getUsername());
-                $admin->setPlainPassword($form->get('password')->getData());
-                $admin->setEmail($admin->getEmail());
-                $admin->setLastLogin(new \DateTime());
-                $admin->setEnabled(true);
-                $admin->setSuperAdmin(true);
+                $session->set('username', $admin->getUsername());
+                $session->set('email', $admin->getEmail());
 
-                try {
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($admin);
+                $em = $this->getDoctrine()->getManager();
+
+                $db_admin = $em->getRepository('ElecmsBundle:UserElecms')->findOneBy(
+                    array(
+                        'email' => $admin->getEmail()
+                    )
+                );
+
+                // If user edits email which was already saved to database, perform an update
+                if($db_admin) {
+                    $db_admin->setUsername($admin->getUsername());
+                    $db_admin->setPassword($form->get('password')->getData());
+                    $db_admin->setEmail($admin->getEmail());
+                    $db_admin->setEnabled(true);
+                    $db_admin->setSuperAdmin(true);
                     $em->flush();
-                } catch (\PDOException $e) {
-                    $this->addFlash('error', 'Database error: '.$e->getMessage());
+
+                // Otherwise, insert a new row
+                } else {
+                    $admin->setUsername($admin->getUsername());
+                    $admin->setPassword($form->get('password')->getData());
+                    $admin->setEmail($admin->getEmail());
+                    $admin->setEnabled(true);
+                    $admin->setSuperAdmin(true);
+
+                    try {
+                        $em = $this->getDoctrine()->getManager();
+                        $em->persist($admin);
+                        $em->flush();
+                    } catch (\PDOException $e) {
+                        $this->addFlash('error', 'Database error: '.$e->getMessage());
+                    }
                 }
+
 
                 $session->set('steps_finished', '2');
                 return $this->redirectToRoute('elecms_step', array('step' => 3));
@@ -143,25 +201,52 @@ class InstallController extends Controller
         if($request->isMethod('POST'))
         {
             try {
-                $title = new Setting();
-                $title->setSettingKey('website_title');
-                $title->setSettingValue($setting->getTitle());
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($title);
-                $em->flush();
+                $website_title = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
+                    array(
+                        'settingKey' => 'website_title'
+                    )
+                );
 
-                $tags = new Setting();
-                $tags->setSettingKey('website_tags');
-                $tags->setSettingValue($setting->getTags());
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($tags);
-                $em->flush();
+                if (!$website_title) {
+                    throw $this->createNotFoundException(
+                        'Setting key website_title was not found in setting table'
+                    );
+                }
 
-                $desc = new Setting();
-                $desc->setSettingKey('website_description');
-                $desc->setSettingValue($setting->getDescription());
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($desc);
+                $website_tags = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
+                    array(
+                        'settingKey' => 'website_tags'
+                    )
+                );
+
+                if (!$website_tags) {
+                    throw $this->createNotFoundException(
+                        'Setting key website_tags was not found in setting table'
+                    );
+                }
+
+                $website_description = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
+                    array(
+                        'settingKey' => 'website_description'
+                    )
+                );
+
+                if (!$website_description) {
+                    throw $this->createNotFoundException(
+                        'Setting key website_description was not found in setting table'
+                    );
+                }
+
+                $website_title->setSettingValue($form->get('title')->getData());
+                $website_title->setModified(new \DateTime());
+
+                $website_tags->setSettingValue($form->get('tags')->getData());
+                $website_tags->setModified(new \DateTime());
+
+                $website_description->setSettingValue($form->get('description')->getData());
+                $website_description->setModified(new \DateTime());
+
                 $em->flush();
 
             } catch (\PDOException $e) {

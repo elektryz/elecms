@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="user_elecms")
  */
 class UserElecms extends BaseUser
@@ -86,6 +87,25 @@ class UserElecms extends BaseUser
                 ->addViolation();
         }
         }
+    }
+
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function doStuffOnPreUpdate()
+    {
+        if($this->password)
+            $this->setPlainPassword($this->password);
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function doStuffOnPrePersist()
+    {
+        if($this->password)
+            $this->setPlainPassword($this->password);
     }
 
 }
