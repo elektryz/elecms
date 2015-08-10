@@ -160,7 +160,6 @@ class InstallController extends Controller
                     $db_admin->setEnabled(true);
                     $db_admin->setSuperAdmin(true);
                     $db_admin->setAdmin(true);
-                    $db_admin->setSonataAdmin(true);
                     $em->flush();
 
                 // Otherwise, insert a new row
@@ -172,7 +171,6 @@ class InstallController extends Controller
                     $admin->setEnabled(true);
                     $admin->setSuperAdmin(true);
                     $admin->setAdmin(true);
-                    $admin->setSonataAdmin(true);
                     try {
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($admin);

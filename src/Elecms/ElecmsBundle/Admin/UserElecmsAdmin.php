@@ -18,6 +18,7 @@ class UserElecmsAdmin extends Admin
 
         $rolesChoices = self::flattenRoles($roles);
 
+
         unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin, as we don't have to display that role
 
         $formMapper
@@ -60,6 +61,13 @@ class UserElecmsAdmin extends Admin
     // LIST
     protected function configureListFields(ListMapper $listMapper)
     {
+        $container = $this->getConfigurationPool()->getContainer();
+        $roles = $container->getParameter('security.role_hierarchy.roles');
+
+        $rolesChoices = self::flattenRoles($roles);
+        unset($rolesChoices["ROLE_SONATA_ADMIN"]);
+
+
         $listMapper
             ->addIdentifier('email', null, array('label' => 'E-mail'))
             ->add('username')
