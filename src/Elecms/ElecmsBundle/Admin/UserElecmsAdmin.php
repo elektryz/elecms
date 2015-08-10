@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Elecms\ElecmsBundle\Entity\UserElecms;
 
 class UserElecmsAdmin extends Admin
 {
@@ -41,7 +40,10 @@ class UserElecmsAdmin extends Admin
 
         $rolesChoices = self::flattenRoles($roles);
 
-        unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin, as we don't have to display that role
+        $rolesChoices[""] = $rolesChoices["ROLE_USER"];
+        unset($rolesChoices["ROLE_USER"]);
+
+        unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin as we don't have to display that role
 
 
         $datagridMapper

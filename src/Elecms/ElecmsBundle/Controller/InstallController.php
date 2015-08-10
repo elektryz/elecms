@@ -149,23 +149,30 @@ class InstallController extends Controller
                     )
                 );
 
+                $userManager = $this->container->get('fos_user.user_manager');
+
                 // If user edits email which was already saved to database, perform an update
                 if($db_admin) {
                     $db_admin->setUsername($admin->getUsername());
-                    $db_admin->setPassword($form->get('password')->getData());
+                    $db_admin->setPlainPassword($form->get('password')->getData());
+                    $userManager->updatePassword($db_admin);
                     $db_admin->setEmail($admin->getEmail());
                     $db_admin->setEnabled(true);
                     $db_admin->setSuperAdmin(true);
+                    $db_admin->setAdmin(true);
+                    $db_admin->setSonataAdmin(true);
                     $em->flush();
 
                 // Otherwise, insert a new row
                 } else {
                     $admin->setUsername($admin->getUsername());
-                    $admin->setPassword($form->get('password')->getData());
+                    $admin->setPlainPassword($form->get('password')->getData());
+                    $userManager->updatePassword($admin);
                     $admin->setEmail($admin->getEmail());
                     $admin->setEnabled(true);
                     $admin->setSuperAdmin(true);
-
+                    $admin->setAdmin(true);
+                    $admin->setSonataAdmin(true);
                     try {
                         $em = $this->getDoctrine()->getManager();
                         $em->persist($admin);

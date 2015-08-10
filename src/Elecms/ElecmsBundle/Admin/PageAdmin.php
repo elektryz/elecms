@@ -14,7 +14,7 @@ class PageAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Title'))
-            ->add('content','textarea')
+            ->add('content','textarea', array('attr' => array('class' => 'tinymce')))
             ->add('is_locked',null, array('required' => false, "label" => "Only for logged users?"))
             ->add('is_active',null, array('required' => false, "label" => "Published?"))
         ;

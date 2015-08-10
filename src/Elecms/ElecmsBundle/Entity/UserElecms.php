@@ -32,7 +32,7 @@ class UserElecms extends BaseUser
 
     /**
      * Here, we won't add any Doctrine annotations because
-     * that field is not needed in our database, just in our form
+     * those fields are not needed in our database. We need it just in the form.
      */
     protected $password_confirm;
     protected $skip_validation;
@@ -74,6 +74,28 @@ class UserElecms extends BaseUser
         $this->skip_validation = $skip_validation;
     }
 
+    public function setAdmin($boolean)
+    {
+        if (true === $boolean) {
+            $this->addRole('ROLE_ADMIN');
+        } else {
+            $this->removeRole('ROLE_ADMIN');
+        }
+
+        return $this;
+    }
+
+    public function setSonataAdmin($boolean)
+    {
+        if (true === $boolean) {
+            $this->addRole('ROLE_SONATA_ADMIN');
+        } else {
+            $this->removeRole('ROLE_SONATA_ADMIN');
+        }
+
+        return $this;
+    }
+
     /**
      * @Assert\Callback
      */
@@ -87,25 +109,6 @@ class UserElecms extends BaseUser
                 ->addViolation();
         }
         }
-    }
-
-
-    /**
-     * @ORM\PreUpdate
-     */
-    public function doStuffOnPreUpdate()
-    {
-        if($this->password)
-            $this->setPlainPassword($this->password);
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    public function doStuffOnPrePersist()
-    {
-        if($this->password)
-            $this->setPlainPassword($this->password);
     }
 
 }
