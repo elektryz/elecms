@@ -9,11 +9,12 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="user_elecms")
+ * @ORM\HasLifecycleCallbacks
  */
 class UserElecms extends BaseUser
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")

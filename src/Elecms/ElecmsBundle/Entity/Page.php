@@ -2,6 +2,7 @@
 namespace Elecms\ElecmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\EntityManager;
 
 /**
  * @ORM\Entity
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Page
 {
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -265,4 +267,11 @@ class Page
     {
         $this->setModified(new \DateTime());
     }
+
+    public function getCustomSizeValue()
+    {
+
+
+    }
+
 }

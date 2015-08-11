@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Elecms\ElecmsBundle\Utils\Helper;
 
 class PageAdmin extends Admin
 {
@@ -23,13 +24,35 @@ class PageAdmin extends Admin
     // FILTERS
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+
+        $repo = $this->getConfigurationPool()->getContainer()
+            ->get('doctrine')->getManager()->getRepository('Elecms\ElecmsBundle\Entity\UserElecms')
+            ->createQueryBuilder('u')
+            ->andWhere('u.roles LIKE :super_admin')
+            ->orWhere('u.roles LIKE :admin')
+            ->setParameter('super_admin', '%ROLE_SUPER_ADMIN%')
+            ->setParameter('admin', '%ROLE_ADMIN%')
+            ->getQuery()
+            ->getResult();
+
+        $usersList = array();
+        foreach($repo as $user)
+        {
+                $usersList[$user->getId()] = $user->getUsername();
+        }
+
         $datagridMapper
             ->add('title')
-            ->add('created_by')
-            ->add('created' ,  'doctrine_orm_datetime', array('field_type'=>'sonata_type_datetime_range_picker','format'=>'dd-MMMM-yy'))
-            ->add('modified_by')
-            ->add('modified',  'doctrine_orm_datetime', array('field_type'=>'sonata_type_datetime_range_picker','format'=>'dd-MMMM-yy'))
-
+            ->add('created_by', 'doctrine_orm_string',
+                array(),
+                'choice',
+                array('choices' => $usersList
+                ))
+            ->add('modified_by', 'doctrine_orm_string',
+                array(),
+                'choice',
+                array('choices' => $usersList
+                ))
         ;
     }
 
@@ -38,7 +61,7 @@ class PageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('created_by')
+            ->add('created_by', 'string', array('code' => 'getCustomSizeValue'))
             ->add('created')
             ->add('modified_by')
             ->add('modified')

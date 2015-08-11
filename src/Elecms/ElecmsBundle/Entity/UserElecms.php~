@@ -10,9 +10,11 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user_elecms")
+ * @ORM\HasLifecycleCallbacks
  */
 class UserElecms extends BaseUser
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -31,9 +33,10 @@ class UserElecms extends BaseUser
 
     /**
      * Here, we won't add any Doctrine annotations because
-     * that field is not needed in our database, just in our form
+     * those fields are not needed in our database. We need it just in the form.
      */
     protected $password_confirm;
+    protected $skip_validation;
 
     public function __construct()
     {
@@ -62,16 +65,50 @@ class UserElecms extends BaseUser
         $this->password_confirm = $password_confirm;
     }
 
+    public function getSkipValidation()
+    {
+        return $this->skip_validation;
+    }
+
+    public function setSkipValidation($skip_validation)
+    {
+        $this->skip_validation = $skip_validation;
+    }
+
+    public function setAdmin($boolean)
+    {
+        if (true === $boolean) {
+            $this->addRole('ROLE_ADMIN');
+        } else {
+            $this->removeRole('ROLE_ADMIN');
+        }
+
+        return $this;
+    }
+
+    public function setSonataAdmin($boolean)
+    {
+        if (true === $boolean) {
+            $this->addRole('ROLE_SONATA_ADMIN');
+        } else {
+            $this->removeRole('ROLE_SONATA_ADMIN');
+        }
+
+        return $this;
+    }
+
     /**
      * @Assert\Callback
      */
     public function validate(ExecutionContextInterface $context)
     {
+        if($this->getPasswordConfirm() && $this->getPassword()) {
         if($this->getPassword() != $this->getPasswordConfirm())
         {
             $context->buildViolation('Inserted passwords are different.')
                 ->atPath('password')
                 ->addViolation();
+        }
         }
     }
 

@@ -75,6 +75,7 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -126,6 +127,7 @@ sonata_doctrine_orm_admin:
         types:
             list:
                 user_roles: ElecmsBundle:Admin:user_roles.html.twig
+                user_list: ElecmsBundle:Admin:user_list.html.twig
 
 # FOSUserBundle
 fos_user:
