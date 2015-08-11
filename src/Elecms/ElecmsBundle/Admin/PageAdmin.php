@@ -6,7 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Elecms\ElecmsBundle\Utils\Helper;
 
 class PageAdmin extends Admin
 {
@@ -38,7 +37,7 @@ class PageAdmin extends Admin
         $usersList = array();
         foreach($repo as $user)
         {
-                $usersList[$user->getId()] = $user->getUsername();
+                $usersList[$user->getUsername()] = $user->getUsername();
         }
 
         $datagridMapper
@@ -78,7 +77,7 @@ class PageAdmin extends Admin
         if($isAdmin || $isSuperAdmin) {
             $objUser = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
             if(!empty($objUser)) {
-                $page->setCreatedBy($objUser->getId());
+                $page->setCreatedBy($objUser->getUsername());
             }
         }
 
@@ -93,7 +92,7 @@ class PageAdmin extends Admin
         if($isAdmin || $isSuperAdmin) {
             $objUser = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
             if(!empty($objUser)) {
-                $page->setModifiedBy($objUser->getId());
+                $page->setModifiedBy($objUser->getUsername());
             }
         }
 

@@ -20,7 +20,7 @@ class Page
     protected $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     protected $created_by;
 
@@ -45,7 +45,7 @@ class Page
     protected $modified;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $modified_by;
 
@@ -266,12 +266,6 @@ class Page
     public function doOtherStuffOnPreUpdate()
     {
         $this->setModified(new \DateTime());
-    }
-
-    public function getCustomSizeValue()
-    {
-
-
     }
 
 }
