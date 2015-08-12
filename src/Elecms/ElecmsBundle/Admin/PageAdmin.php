@@ -60,7 +60,7 @@ class PageAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('created_by', 'string', array('code' => 'getCustomSizeValue'))
+            ->add('created_by')
             ->add('created')
             ->add('modified_by')
             ->add('modified')

@@ -251,6 +251,7 @@ class InstallController extends Controller
 
                 $website_description->setSettingValue($form->get('description')->getData());
                 $website_description->setModified(new \DateTime());
+                $website_title->setFieldType('textarea');
 
                 $em->flush();
 

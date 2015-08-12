@@ -28,6 +28,11 @@ class Setting
     protected $settingValue;
 
     /**
+     * @ORM\Column(length=50, nullable=true, options={"default":"text"})
+     */
+    protected $fieldType;
+
+    /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     protected $modified;
@@ -167,5 +172,28 @@ class Setting
     public function doOtherStuffOnPreUpdate()
     {
         $this->setModified(new \DateTime());
+    }
+
+    /**
+     * Set fieldType
+     *
+     * @param string $fieldType
+     * @return Setting
+     */
+    public function setFieldType($fieldType)
+    {
+        $this->fieldType = $fieldType;
+
+        return $this;
+    }
+
+    /**
+     * Get fieldType
+     *
+     * @return string 
+     */
+    public function getFieldType()
+    {
+        return $this->fieldType;
     }
 }

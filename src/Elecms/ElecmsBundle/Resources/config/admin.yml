@@ -19,3 +19,13 @@ services:
                 - ~
             calls:
                 - [ setTranslationDomain, [ElecmsBundle]]
+    sonata.admin.setting:
+            class: Elecms\ElecmsBundle\Admin\SettingAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Settings" }
+            arguments:
+                - ~
+                - Elecms\ElecmsBundle\Entity\Setting
+                - ~
+            calls:
+                - [ setTranslationDomain, [ElecmsBundle]]

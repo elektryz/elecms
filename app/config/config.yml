@@ -109,6 +109,7 @@ sonata_admin:
                 items:
                     - sonata.admin.userelecms
                     - sonata.admin.page
+                    - sonata.admin.setting
 
 sonata_block:
     default_contexts: [cms]

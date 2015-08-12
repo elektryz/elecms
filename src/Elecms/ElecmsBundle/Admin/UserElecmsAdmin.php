@@ -23,8 +23,8 @@ class UserElecmsAdmin extends Admin
         unset($rolesChoices["ROLE_SONATA_ADMIN"]); // Hide sonata admin, as we don't have to display that role
 
         $formMapper
-            ->add('email', 'text', array('label' => 'E-mail'))
             ->add('username', 'text')
+            ->add('email', 'text', array('label' => 'E-mail'))
             ->add('password','password', array('required' => false))
             ->add('enabled', null, array('required' => false))
             ->add('roles', 'choice', array(
@@ -71,8 +71,8 @@ class UserElecmsAdmin extends Admin
 
 
         $listMapper
-            ->addIdentifier('email', null, array('label' => 'E-mail'))
-            ->add('username')
+            ->addIdentifier('username')
+            ->add('email', null, array('label' => 'E-mail'))
             ->add('lastLogin')
             ->add('roles','user_roles')
         ;

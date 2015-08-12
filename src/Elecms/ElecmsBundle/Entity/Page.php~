@@ -255,6 +255,11 @@ class Page
         return $this->created;
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
+
 
     /** @ORM\PrePersist */
     public function doOtherStuffOnPrePersist()
