@@ -1,1 +1,1 @@
-{ parameters: { database_host: localhost, database_port: null, database_name: elecms, database_user: root, database_password: root, secret: spQdc3phWqhZPN6Y } }
+{ parameters: { database_host: localhost, database_port: null, database_name: elecms, database_user: root, database_password: root, secret: qt6tXvuzPe6RX } }

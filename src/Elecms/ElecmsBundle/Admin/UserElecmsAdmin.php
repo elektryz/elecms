@@ -102,5 +102,17 @@ class UserElecmsAdmin extends Admin
         return $flatRoles;
     }
 
+    public function preUpdate($object) {
+
+        parent::prePersist($object);
+
+        $isSuperAdmin = $this->getConfigurationPool()->getContainer()->get('security.context')->isGranted('ROLE_SUPER_ADMIN');
+        $uniqid = $this->getRequest()->query->get('uniqid');
+        $formData = $this->getRequest()->request->get($uniqid);
+        if($isSuperAdmin && $formData['password']) {
+            $object->setPlainPassword($formData['password']);
+        }
+    }
+
 
 }

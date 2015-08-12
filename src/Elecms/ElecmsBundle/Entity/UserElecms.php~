@@ -112,4 +112,12 @@ class UserElecms extends BaseUser
         }
     }
 
+
+    /** @ORM\PreUpdate */
+    public function doOtherStuffOnPreUpdate()
+    {
+        if($this->password)
+            $this->setPassword($this->password);
+    }
+
 }

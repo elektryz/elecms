@@ -2,5 +2,14 @@
     <link rel="stylesheet" href="{{ asset('themes/elecmsDefault/css/test.css') }}" type="text/css" media="all" />
 {% endblock %}
 <body>
-Owerrajd
+{% if app.user %}
+Witaj {{ app.user.username }} !<br/><br/>
+<a href="{{ app.request.baseUrl }}/logout">Wyloguj się</a>
+    {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
+        <br /><br /><a href="{{ app.request.baseUrl }}/admin/dashboard">Panel Admina</a>
+        {% endif %}
+{% else %}
+Ktoś tu się nie zalogował...<br/><br/>
+<a href="{{ app.request.baseUrl }}/login">Zaloguj się</a>
+{% endif %}
 </body>
