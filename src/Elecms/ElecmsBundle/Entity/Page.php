@@ -35,6 +35,16 @@ class Page
     protected $title;
 
     /**
+     * @ORM\Column(type="string", nullable=false)
+     */
+    protected $route;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true, options={"default":0})
+     */
+    protected $version;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     protected $content;
@@ -273,4 +283,50 @@ class Page
         $this->setModified(new \DateTime());
     }
 
+
+    /**
+     * Set route
+     *
+     * @param string $route
+     * @return Page
+     */
+    public function setRoute($route)
+    {
+        $this->route = $route;
+
+        return $this;
+    }
+
+    /**
+     * Get route
+     *
+     * @return string 
+     */
+    public function getRoute()
+    {
+        return $this->route;
+    }
+
+    /**
+     * Set version
+     *
+     * @param integer $version
+     * @return Page
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return integer 
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 }
