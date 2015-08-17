@@ -32,7 +32,12 @@ class UserElecms extends BaseUser
     protected $email;
 
     /**
-     * Here, we won't add any Doctrine annotations because
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $registered;
+
+    /**
+     * Here, we won't add any annotations because
      * those fields are not needed in our database. We need it just in the form.
      */
     protected $password_confirm;

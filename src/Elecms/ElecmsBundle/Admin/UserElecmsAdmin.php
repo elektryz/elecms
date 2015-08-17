@@ -71,6 +71,10 @@ class UserElecmsAdmin extends Admin
 
 
         $listMapper
+            ->add('id',null,array(
+                'sortable'=>true,
+                'sort_field_mapping'=> array('fieldName'=>'id'),
+            ))
             ->addIdentifier('username')
             ->add('email', null, array('label' => 'E-mail'))
             ->add('lastLogin')
