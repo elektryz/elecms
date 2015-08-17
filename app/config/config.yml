@@ -143,7 +143,16 @@ liip_theme:
     assetic_integration: "%AsseticIntegration%"
 
 stfalcon_tinymce:
-        include_jquery: true
-        tinymce_jquery: true
-        selector: ".tinymce"
-        language: %locale%
+    include_jquery: true
+    tinymce_jquery: true
+    selector: ".tinymce"
+    language: %locale%
+    theme:
+        simple:
+            content_css: "asset[bundles/elecms/css/tinymce-content.css]"
+            height: 400
+            plugins:
+                - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
+                - "searchreplace wordcount visualblocks visualchars code"
+                - "insertdatetime media nonbreaking save table contextmenu directionality"
+                - "template paste textcolor"

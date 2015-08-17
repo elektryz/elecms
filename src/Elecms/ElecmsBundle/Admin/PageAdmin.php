@@ -14,6 +14,8 @@ class PageAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Title'))
+            ->add('route', 'text', array('label' => 'Friendly URL',
+                'help' => 'There will be description<br>of routing rules...'))
             ->add('content','textarea', array('attr' => array('class' => 'tinymce')))
             ->add('is_locked',null, array('required' => false, "label" => "Only for logged users?"))
             ->add('is_active',null, array('required' => false, "label" => "Published?"))
@@ -64,7 +66,6 @@ class PageAdmin extends Admin
             ->add('created')
             ->add('modified_by')
             ->add('modified')
-
         ;
     }
 
