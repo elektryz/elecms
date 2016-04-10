@@ -19,6 +19,13 @@ elecms_step:
             step:  \d+
             _locale: pl|en
 
+elecms_page:
+    path:     /{_locale}/{page}
+    defaults: { _controller: ElecmsBundle:Page:render }
+    requirements:
+            _locale: pl|en
+            page:  "[a-zA-Z1-9\-]+"
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin

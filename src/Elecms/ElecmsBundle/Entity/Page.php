@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\EntityManager;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\PageRepository")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="page")
  */

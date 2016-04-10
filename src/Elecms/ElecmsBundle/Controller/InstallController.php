@@ -143,7 +143,7 @@ class InstallController extends Controller
 
                 $em = $this->getDoctrine()->getManager();
 
-                $db_admin = $em->getRepository('ElecmsBundle:UserElecms')->findOneBy(
+                $dbAdmin = $em->getRepository('ElecmsBundle:UserElecms')->findOneBy(
                     array(
                         'email' => $admin->getEmail()
                     )
@@ -151,35 +151,27 @@ class InstallController extends Controller
 
                 $userManager = $this->container->get('fos_user.user_manager');
 
-                // If user edits email which was already saved to database, perform an update
-                if($db_admin) {
-                    $db_admin->setUsername($admin->getUsername());
-                    $db_admin->setPlainPassword($form->get('password')->getData());
-                    $userManager->updatePassword($db_admin);
-                    $db_admin->setEmail($admin->getEmail());
-                    $db_admin->setEnabled(true);
-                    $db_admin->setSuperAdmin(true);
-                    $db_admin->setAdmin(true);
-                    $em->flush();
+                $dbAdmin->setUsername($dbAdmin->getUsername());
+                $dbAdmin->setPlainPassword($form->get('password')->getData());
+                $userManager->updatePassword($dbAdmin);
+                $dbAdmin->setEmail($dbAdmin->getEmail());
+                $dbAdmin->setEnabled(true);
+                $dbAdmin->setSuperAdmin(true);
+                $dbAdmin->setAdmin(true);
 
+                // If user edits email which was already saved to database, perform an update
+                if($dbAdmin) {
+                    $em->flush();
                 // Otherwise, insert a new row
                 } else {
-                    $admin->setUsername($admin->getUsername());
-                    $admin->setPlainPassword($form->get('password')->getData());
-                    $userManager->updatePassword($admin);
-                    $admin->setEmail($admin->getEmail());
-                    $admin->setEnabled(true);
-                    $admin->setSuperAdmin(true);
-                    $admin->setAdmin(true);
                     try {
                         $em = $this->getDoctrine()->getManager();
-                        $em->persist($admin);
+                        $em->persist($dbAdmin);
                         $em->flush();
                     } catch (\PDOException $e) {
                         $this->addFlash('error', 'Database error: '.$e->getMessage());
                     }
                 }
-
 
                 $session->set('steps_finished', '2');
                 return $this->redirectToRoute('elecms_step', array('step' => 3));

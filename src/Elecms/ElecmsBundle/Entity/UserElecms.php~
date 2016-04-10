@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\UserElecmsRepository")
  * @ORM\Table(name="user_elecms")
  * @ORM\HasLifecycleCallbacks
  */
@@ -125,4 +125,33 @@ class UserElecms extends BaseUser
             $this->setPassword($this->password);
     }
 
+    /** @ORM\PrePersist */
+    public function doOtherStuffOnPrePersist()
+    {
+        $this->setRegistered(new \DateTime());
+    }
+
+
+    /**
+     * Set registered
+     *
+     * @param \DateTime $registered
+     * @return UserElecms
+     */
+    public function setRegistered($registered)
+    {
+        $this->registered = $registered;
+
+        return $this;
+    }
+
+    /**
+     * Get registered
+     *
+     * @return \DateTime 
+     */
+    public function getRegistered()
+    {
+        return $this->registered;
+    }
 }

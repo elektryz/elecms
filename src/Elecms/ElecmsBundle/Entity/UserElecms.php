@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\UserElecmsRepository")
  * @ORM\Table(name="user_elecms")
  * @ORM\HasLifecycleCallbacks
  */
