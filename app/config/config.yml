@@ -147,12 +147,40 @@ stfalcon_tinymce:
     tinymce_jquery: true
     selector: ".tinymce"
     language: %locale%
+    tinymce_buttons:
+                bi:
+                    title: Show info about Bootstrap controls
+                    image: "http://stfalcon.com/favicon.ico"
+                    text: Info (?)
+                columns:
+                    title: Insert Bootstrap column(s)
+                    image: "http://stfalcon.com/favicon.ico"
+                    text: Columns
+                icons:
+                    title: Insert Glyphicons
+                    image: "http://google.com/favicon.ico"
+                    text: Icons
+                buttons:
+                    title: Insert buttons and labels
+                    image: "http://google.com/favicon.ico"
+                    text: Buttons
+                alerts:
+                    title: Insert alerts and panels
+                    image: "http://google.com/favicon.ico"
+                    text: Alerts
+                switch:
+                    title: Switch theme
+                    image: "http://google.com/favicon.ico"
+                    text: Switch theme
     theme:
         simple:
-            content_css: "asset[bundles/elecms/css/tinymce-content.css]"
+            content_css: "asset[bundles/elecms/css/bootstrap_tinymce.css]"
             height: 400
             plugins:
                 - "advlist autolink lists link image charmap print preview hr anchor pagebreak"
                 - "searchreplace wordcount visualblocks visualchars code"
                 - "insertdatetime media nonbreaking save table contextmenu directionality"
                 - "template paste textcolor"
+            toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | switch"
+            toolbar2: "print media | forecolor backcolor emoticons | bi | columns | icons | buttons | alerts"
+            extended_valid_elements: "div[class|style],p[class|style],span[class|style],img[class|span|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name]"

@@ -38,4 +38,15 @@ class Helper
 
         return '';
     }
+
+
+    public static function ListNumber()
+    {
+        $return = '';
+
+        for($i = 1; $i <= 50; $i++)
+            $return[$i] = $i;
+
+        return $return;
+    }
 }

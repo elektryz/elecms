@@ -1,2 +1,17 @@
 services:
-##
+    db.service:
+        class:  Elecms\ElecmsBundle\Utils\DbService
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+    db.language:
+        class:  Elecms\ElecmsBundle\Db\DbLanguage
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+    db.setting:
+        class:  Elecms\ElecmsBundle\Db\DbSetting
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"
+    db.user:
+        class:  Elecms\ElecmsBundle\Db\DbUser
+        arguments:
+            entityManager: "@doctrine.orm.entity_manager"

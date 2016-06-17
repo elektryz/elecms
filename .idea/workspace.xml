@@ -2,15 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1acf373c-7179-4450-93ca-c884f194abe0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/parameters.yml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/.gitkeep" afterPath="$PROJECT_DIR$/app/cache/.gitkeep" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/logs/.gitkeep" afterPath="$PROJECT_DIR$/app/logs/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingPriv.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/themes/admin/css/remodal-default-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/themes/admin/css/remodal.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/themes/admin/js/remodal.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/PageRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecmsRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/elecms.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/SettingData.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/themes/elecmsDefault/css/test.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbMail.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbMail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/DependencyInjection/ElecmsExtension.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/DependencyInjection/ElecmsExtension.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/PageController.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/PageController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/SettingAdmin.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/SettingAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step3Form.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step3Form.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/UserElecmsAdmin.php" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/UserElecmsAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/admin.yml" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/admin.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Page/index.html.twig" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Page/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/messages.pl.yml" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/messages.pl.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Install/step3.html.twig" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Install/step3.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Admin/user_block.html.twig" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Admin/user_block.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/validators.pl.yml" afterPath="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/validators.pl.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elecms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,47 +50,67 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="FLATTEN" value="false" />
+    <option name="GROUP_BY_TYPE" value="true" />
+    <option name="SORT_CHILDREN" value="false" />
+    <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="elecms" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="InstallController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="12.0">
-              <caret line="233" column="37" selection-start-line="233" selection-start-column="37" selection-end-line="233" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Helper.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27272728">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserElecmsRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecmsRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
+      <file leaf-file-name="Page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="413" column="20" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="95" selection-end-column="24" />
+              <folding>
+                <element signature="e#45#77#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Language.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Language.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageAdmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="30" />
+              <folding>
+                <element signature="e#45#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserElecmsAdmin.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/UserElecmsAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserElecms.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -74,18 +118,70 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php" />
-        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php" />
-        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php" />
         <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingRepository.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/admin.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingPriv.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/LanguageService.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/LanguageService.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/SettingDataForm.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/SettingData.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step3Form.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Db/LanguageDb.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Db/DbLanguage.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbService.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/validators.pl.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/database.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbMail.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Install/step3.html.twig" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/messages.pl.yml" />
         <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/SettingAdmin.php" />
+        <option value="$PROJECT_DIR$/web/bundles/elecms/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/web/themes/elecmsDefault/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Page/footer.html.twig" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/header.html.twig" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php" />
+        <option value="$PROJECT_DIR$/web/themes/admin/css/remodal-default-theme.css" />
+        <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/standard_layout.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/stfalcontinymce/js/init.jquery.js" />
+        <option value="$PROJECT_DIR$/web/bundles/elecms/css/bootstrap_tinymce.css" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php" />
         <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/PageController.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/menu.html.twig" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Page/index.html.twig" />
+        <option value="$PROJECT_DIR$/web/themes/elecmsDefault/css/stylish-portfolio.css" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/footer.html.twig" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbLanguage.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbUser.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/translations/pl.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/DependencyInjection/ElecmsExtension.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Admin/user_block.html.twig" />
+        <option value="$PROJECT_DIR$/app/logs/dev.log" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/elecms.yml" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbSetting.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php" />
+        <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Controller/CRUDController.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Language.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php" />
+        <option value="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/UserElecmsAdmin.php" />
       </list>
     </option>
   </component>
@@ -101,10 +197,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+    <option name="x" value="1431" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -129,8 +225,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,7 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Utils" />
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,7 +327,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
+              <option name="myItemId" value="Db" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -263,16 +357,87 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ElecmsBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elecms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../huta" />
     <property name="FullScreen" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.File Status" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config" />
+      <recent name="$PROJECT_DIR$/web/themes/elecmsDefault/img" />
+      <recent name="$PROJECT_DIR$/web/bundles/elecms/css" />
+      <recent name="$PROJECT_DIR$/web/themes/elecmsDefault/css" />
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable" />
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes" />
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Database" />
+      <recent name="$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -316,28 +481,48 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="1431" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25737053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28020832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23935877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -351,140 +536,210 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php">
+    <entry file="file://$PROJECT_DIR$/web/themes/elecmsDefault/font-awesome/css/font-awesome.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
+    <entry file="file://$PROJECT_DIR$/web/themes/elecmsDefault/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="413" column="20" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.57615894">
+          <caret line="178" column="5" selection-start-line="178" selection-start-column="5" selection-end-line="178" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingRepository.php">
+    <entry file="file://$PROJECT_DIR$/web/bundles/elecms/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2516129">
+          <caret line="3432" column="12" selection-start-line="3432" selection-start-column="12" selection-end-line="3432" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/themes/admin/css/remodal-default-theme.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php">
+    <entry file="file://$PROJECT_DIR$/web/bundles/elecms/css/bootstrap_tinymce.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#89#0#PHP" expanded="false" />
-          </folding>
+          <caret line="1095" column="26" selection-start-line="1095" selection-start-column="26" selection-end-line="1095" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php">
+    <entry file="file://$PROJECT_DIR$/web/themes/admin/css/admin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
+        <state vertical-scroll-proportion="0.58064514">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step3Form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.5">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.0">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/PageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.75">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/SettingData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57575756">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6407767">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="63" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/DependencyInjection/Configuration.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Page/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingRepository.php">
+    <entry file="file://$PROJECT_DIR$/web/bundles/stfalcontinymce/js/ready.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php">
+    <entry file="file://$PROJECT_DIR$/web/bundles/stfalcontinymce/js/init.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="81" />
-          <folding>
-            <element signature="e#46#89#0#PHP" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="36" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/standard_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="529" column="60" selection-start-line="529" selection-start-column="60" selection-end-line="529" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/themes/elecmsDefault/img/bg111.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/menu.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2781457">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Page/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.75">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46357617">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/themes/elecmsDefault/css/stylish-portfolio.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83982205">
+          <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.059602648">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/themes/elecmsDefault/Includes/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7350993">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Datagrid/ListMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34216335">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="23" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.5">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Yaml/Dumper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0794702">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbMail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9818182">
+          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/mailer.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="39" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/themes.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34216335">
+          <caret line="83" column="20" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -495,111 +750,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/PageRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/translations/pl.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.75">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/messages.pl.yml">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/DependencyInjection/ElecmsExtension.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08006814">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.615894">
+          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/messages.en.yml">
+    <entry file="file://$PROJECT_DIR$/app/logs/dev.log">
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3403782">
+          <caret line="35" column="94" selection-start-line="35" selection-start-column="94" selection-end-line="35" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/translations/en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step2Form.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/elecms.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/translations/validators.pl.yml">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/views/Admin/user_block.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Form.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/SettingPriv.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34680134">
-          <caret line="768" column="20" selection-start-line="768" selection-start-column="20" selection-end-line="768" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="0.33774835">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Validator/Context/ExecutionContextInterface.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34680134">
-          <caret line="80" column="20" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.019354839">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Form/Step1Form.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbUser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75">
-          <caret line="27" column="57" selection-start-line="27" selection-start-column="57" selection-end-line="27" selection-end-column="57" />
-          <folding />
+        <state vertical-scroll-proportion="-6.8727274">
+          <caret line="25" column="84" selection-start-line="25" selection-start-column="84" selection-end-line="25" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Resources/config/writable/parameters.yml">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbSetting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="71" selection-start-line="0" selection-start-column="71" selection-end-line="0" selection-end-column="71" />
+        <state vertical-scroll-proportion="-10.333333">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/DbMail.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/SettingAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="87.0">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#45#79#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-3.375">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
+    <entry file="file://$PROJECT_DIR$/app/cache/prod/translations/catalogue.az.1cd7e874b24ab41081c7781e4161053bf515fc91.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="413" column="20" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
-          <folding />
+        <state vertical-scroll-proportion="-187.5">
+          <caret line="250" column="5" selection-start-line="250" selection-start-column="5" selection-end-line="250" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Controller/CRUDController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3222958">
+          <caret line="104" column="23" selection-start-line="104" selection-start-column="23" selection-end-line="104" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Db/DbLanguage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53642386">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/InstallController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="12.0">
-          <caret line="233" column="37" selection-start-line="233" selection-start-column="37" selection-end-line="233" selection-end-column="37" />
+        <state vertical-scroll-proportion="-0.410596">
+          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Controller/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41721854">
+          <caret line="21" column="68" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="95" selection-end-column="24" />
+          <folding>
+            <element signature="e#45#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/UserElecmsRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Entity/Language.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Utils/Helper.php">
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/PageAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27272728">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="30" />
+          <folding>
+            <element signature="e#45#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Elecms/ElecmsBundle/Admin/UserElecmsAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
           <folding />
         </state>
       </provider>

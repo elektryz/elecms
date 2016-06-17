@@ -24,10 +24,17 @@ class ElecmsExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $subDirectory = 'writable/';
-        $loader->load($subDirectory.'parameters.yml');
+        $loader->load($subDirectory.'database.yml');
         $loader->load($subDirectory.'elecms.yml');
         $loader->load($subDirectory.'themes.yml');
         $loader->load('admin.yml');
         $loader->load('services.yml');
+
+        $languages = explode('|', $container->getParameter('languages'));
+
+        foreach($languages as $language) {
+            $loader->load('writable/translations/'.$language.'.yml');
+        }
     }
+
 }

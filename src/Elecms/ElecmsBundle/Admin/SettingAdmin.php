@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Route\RouteCollection;
 class SettingAdmin extends Admin
 {
 
+    protected $classnameLabel = 'Settings';
+
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('create');
@@ -25,17 +27,30 @@ class SettingAdmin extends Admin
             ->get('doctrine')->getManager()->getRepository('Elecms\ElecmsBundle\Entity\Setting')
             ->findOneBy(array('id' => $matches[0]));
 
+        $array = array('label' => 'Value','required' => false);
+        $fieldType = $repo->getFieldType();
+
+        if($repo->getFieldType() == "bool") {
+            $fieldType = 'choice';
+            $array['empty_value'] = false;
+            $array['help'] = 'Current value: <strong>'.$repo->getSettingValue().'</strong>';
+            $array['choices'] = array(
+                '1' => '[ YES ]',
+                '0' => '[ NO ]',
+            );
+        }
+
         $formMapper
             ->with($repo->getSettingKey())
-            ->add('settingValue', $repo->getFieldType(), array('label' => 'Value','required' => false));
+            ->add('settingValue', $fieldType, $array);
     }
 
     // FILTERS
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('settingKey')
-            ->add('settingValue');
+            ->add('settingKey', null, array('label' => 'Klucz'))
+            ->add('settingValue', null, array('label' => 'Wartość'));
     }
 
     // LIST

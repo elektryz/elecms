@@ -139,7 +139,7 @@ class DbMail
     {
         $dumper = new Dumper();
 
-        if($skipped == false) {
+        if(!$skipped) {
             $mailParams = array(
                 'parameters' => array(
                     'mailer_transport' => 'smtp',
@@ -167,7 +167,7 @@ class DbMail
 
             $yaml = $dumper->dump($params);
 
-            return file_put_contents(__DIR__.'/../Resources/config/writable/parameters.yml', $yaml) ? true : false;
+            return file_put_contents(__DIR__.'/../Resources/config/writable/database.yml', $yaml) ? true : false;
 
     }
 
@@ -185,7 +185,6 @@ class DbMail
         } else {
             // If you don't want to skip SMTP configuration, you must fill all fields
             $this->validateSMTP($context);
-
             $this->validateCreateYml($context);
         }
     }
@@ -208,21 +207,14 @@ class DbMail
 
     protected function validateSMTP(ExecutionContextInterface $context)
     {
-        if(trim($this->getMailhost()) == "") {
-            $context->buildViolation('SMTP host field can not be empty.')
-                ->atPath('mailhost')
-                ->addViolation();
-        }
-        if(trim($this->getMailuser()) == "") {
-            $context->buildViolation('SMTP user field can not be empty.')
-                ->atPath('mailuser')
-                ->addViolation();
-        }
-        if(trim($this->getMailpassword()) == "") {
-            $context->buildViolation('SMTP password field can not be empty.')
-                ->atPath('mailpassword')
-                ->addViolation();
-        }
+        if(trim($this->getMailhost()) == "")
+            $context->buildViolation('SMTP host field can not be empty.')->atPath('mailhost')->addViolation();
+
+        if(trim($this->getMailuser()) == "")
+            $context->buildViolation('SMTP user field can not be empty.')->atPath('mailuser')->addViolation();
+
+        if(trim($this->getMailpassword()) == "")
+            $context->buildViolation('SMTP password field can not be empty.')->atPath('mailpassword')->addViolation();
     }
 
     protected function validateCreateYml(ExecutionContextInterface $context, $skip = false)
@@ -230,7 +222,7 @@ class DbMail
         try {
             $this->exportToYml(true);
         } catch (\Exception $e) {
-            $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/writable/parameters.yml" does not exist or you have not enough permissions to write it.')
+            $context->buildViolation('File /src/Elecms/ElecmsBundle/Resources/config/writable/database.yml does not exist or you have not enough permissions to write it.')
                 ->addViolation();
         }
 
@@ -238,7 +230,7 @@ class DbMail
             try {
                 $this->exportToYml();
             } catch (\Exception $e) {
-                $context->buildViolation('File "/src/Elecms/ElecmsBundle/Resources/config/writable/mailer.yml" does not exist or you have not enough permissions to write it.')
+                $context->buildViolation('File /src/Elecms/ElecmsBundle/Resources/config/writable/mailer.yml does not exist or you have not enough permissions to write it.')
                     ->addViolation();
             }
         }

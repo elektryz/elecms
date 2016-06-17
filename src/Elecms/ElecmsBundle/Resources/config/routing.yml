@@ -6,7 +6,7 @@ elecms_install:
     path:     /{_locale}/install/
     defaults: { _controller: ElecmsBundle:Install:index }
     requirements:
-            _locale: pl|en
+            _locale: "%languages%"
 
 elecms_lang_install:
     path:     /install/
@@ -17,14 +17,7 @@ elecms_step:
     defaults: { _controller: ElecmsBundle:Install:step }
     requirements:
             step:  \d+
-            _locale: pl|en
-
-elecms_page:
-    path:     /{_locale}/{page}
-    defaults: { _controller: ElecmsBundle:Page:render }
-    requirements:
-            _locale: pl|en
-            page:  "[a-zA-Z1-9\-]+"
+            _locale: "%languages%"
 
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
@@ -57,3 +50,9 @@ fos_user_change_password:
 liip_theme:
     resource: "@LiipThemeBundle/Resources/config/routing.xml"
     prefix: /theme
+
+elecms_page:
+    path:     /{page}
+    defaults: { _controller: ElecmsBundle:Page:render }
+    requirements:
+            page:  "[a-zA-Z1-9\-]+"

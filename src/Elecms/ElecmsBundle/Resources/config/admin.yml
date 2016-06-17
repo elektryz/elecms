@@ -2,7 +2,7 @@ services:
     sonata.admin.userelecms:
         class: Elecms\ElecmsBundle\Admin\UserElecmsAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "User" }
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Users" }
         arguments:
             - ~
             - Elecms\ElecmsBundle\Entity\UserElecms
@@ -12,7 +12,7 @@ services:
     sonata.admin.page:
             class: Elecms\ElecmsBundle\Admin\PageAdmin
             tags:
-                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Page" }
+                - { name: sonata.admin, manager_type: orm, group: "Content", label: "Pages" }
             arguments:
                 - ~
                 - Elecms\ElecmsBundle\Entity\Page

@@ -4,7 +4,7 @@ namespace Elecms\ElecmsBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\SettingRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="setting")
  */
@@ -18,7 +18,7 @@ class Setting
     protected $id;
 
     /**
-     * @ORM\Column(length=100)
+     * @ORM\Column(length=100, nullable=true)
      */
     protected $settingKey;
 
@@ -28,9 +28,9 @@ class Setting
     protected $settingValue;
 
     /**
-     * @ORM\Column(length=50, nullable=true, options={"default":"text"})
+     * @ORM\Column(length=50, nullable=true)
      */
-    protected $fieldType;
+    protected $fieldType = 'text';
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
@@ -157,9 +157,25 @@ class Setting
      *
      * @return string 
      */
-    public function getSettingValue()
+    public function getSettingValue($rawDisplay = false)
     {
-        return $this->settingValue;
+        $return = $this->settingValue;
+        if($rawDisplay) {
+            $return = $this->settingValue;
+        } else {
+            if(is_numeric($this->settingValue)) {
+                if(intval($this->settingValue) == 0) {
+                    $return = "[ NO ]";
+                } else {
+                    if(intval($this->settingValue) == 1) {
+                        $return = "[ YES ]";
+                    } else {
+                        $return = $this->settingValue;
+                    }
+                }
+            }
+        }
+        return $return;
     }
 
     /** @ORM\PrePersist */

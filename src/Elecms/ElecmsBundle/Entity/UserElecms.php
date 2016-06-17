@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
- * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\UserElecmsRepository")
+ * @ORM\Entity
  * @ORM\Table(name="user_elecms")
  * @ORM\HasLifecycleCallbacks
  */
@@ -37,11 +37,16 @@ class UserElecms extends BaseUser
     protected $registered;
 
     /**
-     * Here, we won't add any annotations because
-     * those fields are not needed in our database. We need it just in the form.
+     * @ORM\ManyToOne(targetEntity="Language", inversedBy="languages2")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     */
+    protected $language;
+
+    /**
+     * Here, we won't add any annotations because those fields are not needed in our database.
+     * We need it just in the form.
      */
     protected $password_confirm;
-    protected $skip_validation;
 
     public function __construct()
     {
@@ -70,15 +75,6 @@ class UserElecms extends BaseUser
         $this->password_confirm = $password_confirm;
     }
 
-    public function getSkipValidation()
-    {
-        return $this->skip_validation;
-    }
-
-    public function setSkipValidation($skip_validation)
-    {
-        $this->skip_validation = $skip_validation;
-    }
 
     public function setAdmin($boolean)
     {
@@ -108,12 +104,9 @@ class UserElecms extends BaseUser
     public function validate(ExecutionContextInterface $context)
     {
         if($this->getPasswordConfirm() && $this->getPassword()) {
-        if($this->getPassword() != $this->getPasswordConfirm())
-        {
-            $context->buildViolation('Inserted passwords are different.')
-                ->atPath('password')
-                ->addViolation();
-        }
+            if($this->getPassword() != $this->getPasswordConfirm()) {
+                $context->buildViolation('Inserted passwords are different.')->atPath('password')->addViolation();
+            }
         }
     }
 
@@ -153,5 +146,29 @@ class UserElecms extends BaseUser
     public function getRegistered()
     {
         return $this->registered;
+    }
+
+
+    /**
+     * Set language
+     *
+     * @param \Elecms\ElecmsBundle\Entity\Language $language
+     * @return UserElecms
+     */
+    public function setLanguage(\Elecms\ElecmsBundle\Entity\Language $language = null)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return \Elecms\ElecmsBundle\Entity\Language 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
     }
 }

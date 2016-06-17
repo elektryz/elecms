@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\EntityManager;
 
 /**
- * @ORM\Entity(repositoryClass="Elecms\ElecmsBundle\Entity\PageRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="page")
  */
@@ -68,6 +68,32 @@ class Page
      * @ORM\Column(type="boolean")
      */
     protected $is_active;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $background;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $height = 0;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $headerColor;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $number;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Language", inversedBy="languages")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     */
+    protected $language;
 
 
     /**
@@ -267,7 +293,7 @@ class Page
 
     public function __toString()
     {
-        return $this->title;
+        return ($this->title === null) ? 'Add new' : $this->title;
     }
 
 
@@ -328,5 +354,120 @@ class Page
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * Set language
+     *
+     * @param integer $language
+     * @return Page
+     */
+    public function setLanguage($language)
+    {
+        $this->language = $language;
+
+        return $this;
+    }
+
+    /**
+     * Get language
+     *
+     * @return integer 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    /**
+     * Set background
+     *
+     * @param string $background
+     * @return Page
+     */
+    public function setBackground($background)
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    /**
+     * Get background
+     *
+     * @return string 
+     */
+    public function getBackground()
+    {
+        return $this->background;
+    }
+
+    /**
+     * Set height
+     *
+     * @param integer $height
+     * @return Page
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Get height
+     *
+     * @return integer 
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Set headerColor
+     *
+     * @param string $headerColor
+     * @return Page
+     */
+    public function setHeaderColor($headerColor)
+    {
+        $this->headerColor = $headerColor;
+
+        return $this;
+    }
+
+    /**
+     * Get headerColor
+     *
+     * @return string 
+     */
+    public function getHeaderColor()
+    {
+        return $this->headerColor;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     * @return Page
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer 
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

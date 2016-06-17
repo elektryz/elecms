@@ -13,7 +13,7 @@ use Elecms\ElecmsBundle\Form\Step2Form;
 use Elecms\ElecmsBundle\Form\Step3Form;
 use Elecms\ElecmsBundle\Utils\DbMail;
 use Elecms\ElecmsBundle\Utils\Helper;
-use Elecms\ElecmsBundle\Utils\SettingData;
+use Elecms\ElecmsBundle\Form\SettingData;
 use Elecms\ElecmsBundle\Entity\UserElecms;
 
 
@@ -29,32 +29,24 @@ class InstallController extends Controller
     {
         $session = new Session();
 
-        switch($step)
-        {
+        switch($step) {
             case 1:
                 return $this->step1($request, $session);
-                break;
             case 2:
-                if($session->get('steps_finished') < 1) {
+                if($session->get('steps_finished') < 1)
                     return $this->render('ElecmsBundle:Install:access_denied.html.twig');
-                } else {
+                else
                     return $this->step2($request, $session);
-                }
-                break;
             case 3:
-                if($session->get('steps_finished') < 2) {
+                if($session->get('steps_finished') < 2)
                     return $this->render('ElecmsBundle:Install:access_denied.html.twig');
-                } else {
+                else
                     return $this->step3($request, $session);
-                }
-                break;
             case 4:
-                if($session->get('steps_finished') < 3) {
+                if($session->get('steps_finished') < 3)
                     return $this->render('ElecmsBundle:Install:access_denied.html.twig');
-                } else {
-                    return $this->step4();
-                }
-                break;
+                else
+                    return $this->step4($session);
             default:
                 throw $this->createNotFoundException();
         }
@@ -88,11 +80,9 @@ class InstallController extends Controller
         $form = $this->createForm(new Step1Form(), $db);
         $form->handleRequest($request);
 
-        if($request->isMethod('POST'))
-        {
+        if($request->isMethod('POST')) {
             if ($form->isValid()) {
                 $session->set('steps_finished', '1');
-
                 $session->set('server', $db->getServer());
                 $session->set('database', $db->getDatabase());
                 $session->set('user', $db->getUser());
@@ -107,11 +97,9 @@ class InstallController extends Controller
                 $error = $validator->validate($db);
                 $this->addFlash('error', Helper::RenderErrors($error));
             }
-         }
+        }
 
-        return $this->render('ElecmsBundle:Install:step1.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->render('ElecmsBundle:Install:step1.html.twig', array('form' => $form->createView()));
     }
 
     private function step2(Request $request, Session $session)
@@ -134,48 +122,15 @@ class InstallController extends Controller
         $form = $this->createForm(new Step2Form(), $admin);
         $form->handleRequest($request);
 
-        if($request->isMethod('POST'))
-        {
+        if($request->isMethod('POST')) {
             if ($form->isValid()) {
-
-                $session->set('username', $admin->getUsername());
-                $session->set('email', $admin->getEmail());
-
-                $em = $this->getDoctrine()->getManager();
-
-                $dbAdmin = $em->getRepository('ElecmsBundle:UserElecms')->findOneBy(
-                    array(
-                        'email' => $admin->getEmail()
-                    )
-                );
-
                 $userManager = $this->container->get('fos_user.user_manager');
 
-                $dbAdmin->setUsername($dbAdmin->getUsername());
-                $dbAdmin->setPlainPassword($form->get('password')->getData());
-                $userManager->updatePassword($dbAdmin);
-                $dbAdmin->setEmail($dbAdmin->getEmail());
-                $dbAdmin->setEnabled(true);
-                $dbAdmin->setSuperAdmin(true);
-                $dbAdmin->setAdmin(true);
-
-                // If user edits email which was already saved to database, perform an update
-                if($dbAdmin) {
-                    $em->flush();
-                // Otherwise, insert a new row
-                } else {
-                    try {
-                        $em = $this->getDoctrine()->getManager();
-                        $em->persist($dbAdmin);
-                        $em->flush();
-                    } catch (\PDOException $e) {
-                        $this->addFlash('error', 'Database error: '.$e->getMessage());
-                    }
-                }
+                $dbUser = $this->get('db.user');
+                $dbUser->install($admin, $userManager, $form, $session);
 
                 $session->set('steps_finished', '2');
                 return $this->redirectToRoute('elecms_step', array('step' => 3));
-
             } else {
                 $validator = $this->get('validator');
                 $error = $validator->validate($admin);
@@ -183,73 +138,17 @@ class InstallController extends Controller
             }
         }
 
-        return $this->render('ElecmsBundle:Install:step2.html.twig', array(
-            'form' => $form->createView()
-        ));
+        return $this->render('ElecmsBundle:Install:step2.html.twig', array('form' => $form->createView()));
     }
 
     private function step3(Request $request, Session $session)
     {
-        $setting = new SettingData();
-
-        $form = $this->createForm(new Step3Form(), $setting);
+        $form = $this->createForm(new Step3Form(), new SettingData());
         $form->handleRequest($request);
 
-        if($request->isMethod('POST'))
-        {
-            try {
-                $em = $this->getDoctrine()->getManager();
-                $website_title = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
-                    array(
-                        'settingKey' => 'website_title'
-                    )
-                );
-
-                if (!$website_title) {
-                    throw $this->createNotFoundException(
-                        'Setting key website_title was not found in setting table'
-                    );
-                }
-
-                $website_tags = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
-                    array(
-                        'settingKey' => 'website_tags'
-                    )
-                );
-
-                if (!$website_tags) {
-                    throw $this->createNotFoundException(
-                        'Setting key website_tags was not found in setting table'
-                    );
-                }
-
-                $website_description = $em->getRepository('ElecmsBundle:Setting')->findOneBy(
-                    array(
-                        'settingKey' => 'website_description'
-                    )
-                );
-
-                if (!$website_description) {
-                    throw $this->createNotFoundException(
-                        'Setting key website_description was not found in setting table'
-                    );
-                }
-
-                $website_title->setSettingValue($form->get('title')->getData());
-                $website_title->setModified(new \DateTime());
-
-                $website_tags->setSettingValue($form->get('tags')->getData());
-                $website_tags->setModified(new \DateTime());
-
-                $website_description->setSettingValue($form->get('description')->getData());
-                $website_description->setModified(new \DateTime());
-                $website_title->setFieldType('textarea');
-
-                $em->flush();
-
-            } catch (\PDOException $e) {
-                $this->addFlash('error', 'Database error: '.$e->getMessage());
-            }
+        if($request->isMethod('POST')) {
+            $dbSetting = $this->get('db.setting');
+            $dbSetting->install($form);
 
             $session->set('steps_finished', '3');
             return $this->redirectToRoute('elecms_step', array('step' => 4));
@@ -260,9 +159,21 @@ class InstallController extends Controller
         ));
     }
 
-    private function step4()
+    private function step4(Session $session)
     {
-        return $this->render('ElecmsBundle:Install:step4.html.twig');
+        $dbLanguage = $this->get('db.language');
+        $dbService = $this->get('db.service');
+
+        $dbLanguage->install();
+
+        if($dbService->checkInstallation()) {
+            $session->clear();
+            $return = $this->render('ElecmsBundle:Install:step4.html.twig', array('installed' => true));
+        }
+        else
+            $return = $this->render('ElecmsBundle:Install:step4.html.twig');
+
+        return $return;
     }
 
     private function createSchema()
@@ -277,6 +188,4 @@ class InstallController extends Controller
         $output = new NullOutput();
         $application->run($input, $output);
     }
-
-
 }

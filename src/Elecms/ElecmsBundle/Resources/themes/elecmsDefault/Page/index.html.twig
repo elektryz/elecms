@@ -1,15 +1,65 @@
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('themes/elecmsDefault/css/test.css') }}" type="text/css" media="all" />
-{% endblock %}
+{{ include('ElecmsBundle:Includes:header.html.twig') }}
+    <title>{{ title }} - {{ description }}</title>
+</head>
+
 <body>
+
+{{ include('ElecmsBundle:Includes:menu.html.twig') }}
+<!---
 {% if app.user %}
-Witaj {{ app.user.username }} !<br/><br/>
-<a href="{{ app.request.baseUrl }}/logout">Wyloguj się</a>
+    Witaj {{ app.user.username }} !<br/><br/>
+
+    <a href="{{ app.request.baseUrl }}/logout">Wyloguj się</a>
     {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPER_ADMIN') %}
         <br /><br /><a href="{{ app.request.baseUrl }}/admin/dashboard">Panel Admina</a>
-        {% endif %}
+    {% endif %}
 {% else %}
-Ktoś tu się nie zalogował...<br/><br/>
-<a href="{{ app.request.baseUrl }}/login">Zaloguj się</a>
-{% endif %}
-</body>
+    Ktoś tu się nie zalogował...<br/><br/>
+    <a href="{{ app.request.baseUrl }}/login">Zaloguj się</a>
+{% endif %} -->
+
+<!-- Intro page -->
+<header id="top" class="header">
+    <div class="text-center" style="padding-top:120px;">
+        <h1>{{ title }}</h1>
+        <h3>{{ description }}...</h3>
+        <br>
+        <a href="#{{ pages.0.route }}" class="btn btn-dark btn-lg">Find out more</a>
+    </div>
+</header>
+<!-- End of intro page -->
+
+<!-- Page loop -->
+{% for item in pages %}
+    <section id="{{ item.route }}"
+        {% if 'http://' in item.background %}
+            class="backgroundImage" style="background: url('{{ item.background }}') no-repeat center center scroll;{% if item.height > 0 %}height:{{ item.height }}px;{% endif %}"
+        {% else %}
+            {% if 'themes/' in item.background %}
+                class="backgroundImage" style="background: {{ asset(item.background) }};{% if item.height > 0 %}height:{{ item.height }}px;{% endif %}"
+            {% else %}
+                {% if item.background != "" %} style="background: {{ item.background }};{% if item.height > 0 %}height:{{ item.height }}px;{% endif %}"{% endif %}
+            {% endif %}
+        {% endif %}>
+        <div class="container">
+            <div class="row col-lg-10 col-lg-offset-1 text-center">
+                <h1 {% if item.headerColor != "" %}style="color: {{ item.headerColor }};"{% endif %}>{{ item.title }}</h1>
+                <hr class="small">
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ item.content | raw }}
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+{% endfor %}
+<!-- End of page loop -->
+
+
+
+
+{{ include('ElecmsBundle:Includes:footer.html.twig') }}

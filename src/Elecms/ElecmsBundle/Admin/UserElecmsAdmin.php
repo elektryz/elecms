@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class UserElecmsAdmin extends Admin
 {
+    protected $classnameLabel = 'Users';
+
     // EDIT FORM
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -27,6 +29,10 @@ class UserElecmsAdmin extends Admin
             ->add('email', 'text', array('label' => 'E-mail'))
             ->add('password','password', array('required' => false))
             ->add('enabled', null, array('required' => false))
+            ->add('language', 'entity', array(
+                'class' => 'Elecms\ElecmsBundle\Entity\Language',
+
+            ))
             ->add('roles', 'choice', array(
                 'choices'  => $rolesChoices,
                 'multiple' => true
@@ -77,8 +83,8 @@ class UserElecmsAdmin extends Admin
             ))
             ->addIdentifier('username')
             ->add('email', null, array('label' => 'E-mail'))
-            ->add('lastLogin')
             ->add('roles','user_roles')
+            ->add('lastLogin')
         ;
     }
 
